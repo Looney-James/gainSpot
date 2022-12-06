@@ -1,11 +1,14 @@
 <!--classes-->
-
-<!--Image-->
-<div>
-  <h1 class ="center"> image space</h1>
-</div>
-
 <!--main toolbar-->
+
+
+<style>
+  body{
+    background-image: url('assets/images/BACKGROUND.jpg');
+  }
+</style>
+
+
 <div>
 
   <mat-toolbar style = "background-color: turquoise; color: white" class = "navbar">
@@ -13,9 +16,8 @@
     <div>gainSpot</div>
 
     <div>
-    <span>Gyms</span>
-    <span>About</span>      
-    <span>Login</span>
+    <span><a mat-raised-button routerLink ="/about" routerLinkActive="active">About</a></span>  
+    <span><a mat-raised-button routerLink ="/login" routerLinkActive="active">Get Started</a></span>
     </div>
 
   </mat-toolbar>
@@ -23,8 +25,33 @@
 
 <!--side toolbar-->
 <div>
-  <mat-sidenav-container>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav-content>Main</mat-sidenav-content>
-  </mat-sidenav-container>
+ 
 </div>
+
+<!-- Welcome message-->
+<body>
+<div>
+  <span></span>
+  
+  <mat-card class = "introCard">
+    <mat-card-header>
+      <mat-card-title>
+        Welcome to gainSpot
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+      Test test test test test test test
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <p></p>
+</div>
+
+<!--Image of our logo and other stuff-->
+
+<div>
+  <img class ="logo" src = "assets/images/gainspot.jpg">
+</div>
+</body>

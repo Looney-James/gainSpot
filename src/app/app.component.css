@@ -1,6 +1,7 @@
-.center{
-    display: grid;
-    place-items: center;
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .navbar{
@@ -11,3 +12,6 @@
     padding-right: 1rem;
   }
 
+  .introCard{
+    max-width: 400px;
+  }
