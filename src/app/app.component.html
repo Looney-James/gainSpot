@@ -17,7 +17,8 @@
 
     <div>
     
-    <!--<span><a mat-raised-button routerLink ="/about" routerLinkActive="active">About</a></span>-->
+    <!-- Old Button
+    <span><a mat-raised-button routerLink ="/about" routerLinkActive="active">About</a></span>-->
     
     <!-- Created a new about button that goes to a popup-->
     <span><button mat-raised-button (click) = "openAbout()">
@@ -25,7 +26,10 @@
     </button></span>
 
     <span><a mat-raised-button routerLink ="/login" routerLinkActive="active">Get Started</a></span>
-    </div>
+
+    <button mat-raised-button (click) = "openLogin()">
+      Login
+    </button></div>
 
   </mat-toolbar>
 </div>
