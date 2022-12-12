@@ -39,5 +39,4 @@ export class AppComponent {
 
     this.dialogRef.open(LoginComponent, dialogConfig);
   }
-
 }
