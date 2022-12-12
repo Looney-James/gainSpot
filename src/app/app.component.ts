@@ -16,7 +16,7 @@ export class AppComponent {
 
   openAbout(){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
+    //dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.position = {
       'top': '84px',
@@ -29,7 +29,7 @@ export class AppComponent {
 
   openLogin(){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
+    //dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.position = {
       'top': '84px',
