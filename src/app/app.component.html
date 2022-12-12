@@ -33,9 +33,13 @@
 
     <mat-menu #appMenu="matMenu">
       <button mat-menu-item>Gym Map</button>
-      <button mat-menu-item>Workouts</button>
+      <button mat-menu-item [matMenuTriggerFor]="subMenu">Workouts</button>
     </mat-menu>
     <span><button mat-raised-button [matMenuTriggerFor]="appMenu">Get Started</button></span>
+    <mat-menu #subMenu="matMenu">
+      <button mat-menu-item>Weekly Schedule</button>
+      <button mat-menu-item>All Workouts</button>
+    </mat-menu>
 
     <span><button mat-raised-button (click) = "openLogin()">
       Login
@@ -60,7 +64,7 @@
 
 <div style = "margin-top: 30px;">
 <h1 class="welcomeMsg">
-  Welcome to gainSpot!
+  Welcome!
 </h1>
 </div>
 </body>

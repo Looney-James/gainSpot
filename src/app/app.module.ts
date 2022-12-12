@@ -19,8 +19,6 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatDialogModule,
-    MaterialModule
   ],
 })
 export class AppModule { }
