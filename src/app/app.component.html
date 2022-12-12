@@ -31,7 +31,11 @@
       About
     </button></span>
 
-    <span><a mat-raised-button routerLink ="/login" routerLinkActive="active">Get Started</a></span>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item>Gym Map</button>
+      <button mat-menu-item>Workouts</button>
+    </mat-menu>
+    <span><button mat-raised-button [matMenuTriggerFor]="appMenu">Get Started</button></span>
 
     <span><button mat-raised-button (click) = "openLogin()">
       Login

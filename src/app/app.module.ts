@@ -17,6 +17,8 @@ import { GetstartedComponent } from './getstarted/getstarted.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MaterialModule,
+    MatDialogModule,
     MaterialModule
   ],
   providers: [],
