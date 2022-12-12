@@ -1,6 +1,12 @@
+<router-outlet></router-outlet>
+
 <h1>Please sign up for notifications!</h1>
 
-<p> User Information... </p>
+<form (submit) = "loginUser($event)">
+    <input type = "text" placeholder = "Username">
+    <input type = "password" placeholder = "Password">
+    <input type = "Submit" value = "Submit">
+</form>
 
 <button mat-raised-button (click) = "closeLogin()">
     Home
