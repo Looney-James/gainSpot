@@ -1,0 +1,18 @@
+#mybutton {
+    position: relative;
+}
+
+#rectangle {
+    width: 40px;
+    height: 3px;
+    background: rgb(126, 220, 246);
+    position: relative;
+    top: -3%;
+    left: 47%;
+}
+
+#paragraph {
+    padding-left:25px;
+    padding-right:25px;
+}
+
