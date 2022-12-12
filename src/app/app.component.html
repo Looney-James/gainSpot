@@ -40,10 +40,12 @@
       <button mat-menu-item>Weekly Schedule</button>
       <button mat-menu-item>All Workouts</button>
     </mat-menu>
-    
-    <button mat-raised-button (click) = "openLogin()">
+
+    <span><button mat-raised-button (click) = "openLogin()">
       Login
-    </button></div>
+    </button>
+    </span>
+  </div>
 
   </mat-toolbar>
 </div>
@@ -53,30 +55,16 @@
  
 </div>
 
-<!-- Welcome message-->
 <body>
-<div>
-  <span></span>
-  
-  <mat-card class = "introCard">
-    <mat-card-header>
-      <mat-card-title>
-        Welcome to gainSpot
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-      Test test test test test test test
-      </p>
-    </mat-card-content>
-  </mat-card>
-
-  <p></p>
-</div>
-
 <!--Image of our logo and other stuff-->
 
 <div>
   <img class ="logo" src = "assets/images/gainspot.jpg">
+</div>
+
+<div style = "margin-top: 30px;">
+<h1 class="welcomeMsg">
+  Welcome to gainSpot!
+</h1>
 </div>
 </body>
