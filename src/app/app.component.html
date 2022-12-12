@@ -33,9 +33,11 @@
 
     <span><a mat-raised-button routerLink ="/login" routerLinkActive="active">Get Started</a></span>
 
-    <button mat-raised-button (click) = "openLogin()">
+    <span><button mat-raised-button (click) = "openLogin()">
       Login
-    </button></div>
+    </button>
+    </span>
+  </div>
 
   </mat-toolbar>
 </div>
@@ -45,13 +47,16 @@
  
 </div>
 
-<!-- Welcome message-->
 <body>
-
-
 <!--Image of our logo and other stuff-->
 
 <div>
   <img class ="logo" src = "assets/images/gainspot.jpg">
+</div>
+
+<div style = "margin-top: 30px;">
+<h1 class="welcomeMsg">
+  Welcome to gainSpot!
+</h1>
 </div>
 </body>
