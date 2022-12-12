@@ -16,7 +16,7 @@ import { TrackerComponent } from './tracker/tracker.component';
     routingComponents,
     GymTrafficComponent,
     CommunityComponent,
-    TrackerComponent
+    TrackerComponent,
   ],
   imports: [
     BrowserModule,

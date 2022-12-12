@@ -8,7 +8,6 @@ import { TrackerComponent } from './tracker/tracker.component';
 import { AppComponent } from './app.component';
 
 const routes: Routes = [
-  {path: '', component: AppComponent},
   {path: 'gymTraffic', component: GymTrafficComponent},
   {path: 'community', component: CommunityComponent},
   {path: 'tracker', component: TrackerComponent}
