@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
+import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
+import { CommunityComponent } from './community/community.component';
+import { TrackerComponent } from './tracker/tracker.component';
 
 @Component({
   selector: 'app-root',
@@ -39,5 +42,4 @@ export class AppComponent {
 
     this.dialogRef.open(LoginComponent, dialogConfig);
   }
-
 }
