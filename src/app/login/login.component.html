@@ -1,7 +1,24 @@
-<h1>Please sign up for notifications!</h1>
+<router-outlet></router-outlet>
 
-<p> User Information... </p>
+<h1 align = "center">Sign up for notifications!</h1>
 
-<button mat-raised-button (click) = "closeLogin()">
-    Home
-</button>
+<form (submit) = "loginUser($event)">
+    <mat-dialog-actions align = "center">
+    <input type = "text" placeholder = "Username">
+    <br>
+    <input type = "password" placeholder = "Password">
+    <br>
+    <input type = "Submit" value = "Submit">
+    </mat-dialog-actions>
+</form>
+
+<br>
+<br>
+<br>
+<div id = "mybutton">
+    <mat-dialog-actions align = "center">
+        <button mat-raised-button (click) = "closeLogin()">
+            Home
+        </button>
+    </mat-dialog-actions>
+</div>

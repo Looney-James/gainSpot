@@ -13,6 +13,11 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  loginUser(event: Event) {
+    event.preventDefault()
+    console.log(event)
+  }
+
   closeLogin() {
     this.dialogRef.closeAll();
   }
