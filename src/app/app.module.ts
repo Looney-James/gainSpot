@@ -12,7 +12,7 @@ import { MatDialogModule} from '@angular/material/dialog';
   declarations: [
     AppComponent,
     routingComponents,
-    GetstartedComponent
+    GetstartedComponent,
   ],
   imports: [
     BrowserModule,

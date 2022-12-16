@@ -30,21 +30,23 @@
     <span><button mat-raised-button (click) = "openAbout()">
       About
     </button></span>
-
-    <mat-menu #appMenu="matMenu">
-      <button mat-menu-item>Gym Map</button>
-      <button mat-menu-item [matMenuTriggerFor]="subMenu">Workouts</button>
-    </mat-menu>
     <span><button mat-raised-button [matMenuTriggerFor]="appMenu">Get Started</button></span>
-    <mat-menu #subMenu="matMenu">
-      <button mat-menu-item>Weekly Schedule</button>
-      <button mat-menu-item>All Workouts</button>
-    </mat-menu>
-
     <span><button mat-raised-button (click) = "openLogin()">
       Login
     </button>
     </span>
+  <nav>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item routerLink="/map">Gym Map</button>
+      <button mat-menu-item [matMenuTriggerFor]="subMenu">Workouts</button>
+    </mat-menu>
+    
+    <mat-menu #subMenu="matMenu">
+      <button mat-menu-item routerLink="/weekly-schedule">Weekly Schedule</button>
+      <button mat-menu-item routerLink="/workouts">All Workouts</button>
+    </mat-menu>
+  </nav>
+    
   </div>
 
   </mat-toolbar>
@@ -68,3 +70,5 @@
 </h1>
 </div>
 </body>
+
+<router-outlet></router-outlet>

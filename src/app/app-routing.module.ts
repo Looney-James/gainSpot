@@ -7,11 +7,17 @@ import { AppComponent } from './app.component';
 import { AuthService } from './services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { MapPageComponent } from './map-page/map-page.component';
+import { WeeklyScheduleComponent } from './weekly-schedule/weekly-schedule.component';
+import { WorkoutListComponent } from './workout-list/workout-list.component';
 
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'map', component: MapPageComponent},
+  {path: 'weekly-schedule', component: WeeklyScheduleComponent},
+  {path: 'workouts', component: WorkoutListComponent}
 ];
 
 @NgModule({
@@ -22,4 +28,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent]
