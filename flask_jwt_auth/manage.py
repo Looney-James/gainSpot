@@ -1,5 +1,5 @@
 # manage.py
-
+#Open source backend code that will be utilized as an authenticator for user login
 
 import os
 import unittest
