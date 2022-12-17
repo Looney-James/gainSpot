@@ -16,7 +16,7 @@ import { HomeComponent } from './home/home.component';
   declarations: [
     AppComponent,
     routingComponents,
-    LoginComponent
+    LoginComponent,
     GetstartedComponent,
     HomeComponent,
   ],
