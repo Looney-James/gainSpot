@@ -1,12 +1,11 @@
-<!--classes-->
-<!--main toolbar-->
-<router-outlet></router-outlet>
 
-<style>
-  body{
-    background-image: url('assets/images/BACKGROUND.jpg');
-  }
-</style>
+
+<!--This code written in HTML and CSS-->
+<!--Team members Gerard, Dustin, Matt, and James contributed to this-->
+<!--Utliized Angular Material for its components and libraries for a better user experience-->
+<!-- Below is code for the homepage-->
+
+
 
 
 <div>
@@ -15,13 +14,6 @@
     
     <div>
       <a style = "color: white" href = "http://localhost:4200/"> gainSpot </a>
-      <!-- <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-      <span><a style = "color: white" href = "http://localhost:4200/community"> Community </a></span>
-      <span></span>
-      <span><a style = "color: white" href = "http://localhost:4200/gymTraffic"> Gym Traffic </a></span>
-      <span></span>
-      <span><a style = "color: white" href = "http://localhost:4200/tracker"> Tracker </a></span>
-      <span></span> -->
 
     </div>
 
@@ -31,48 +23,38 @@
     <span><a mat-raised-button routerLink ="/about" routerLinkActive="active">About</a></span>-->
     
     <!-- Created a new about button that goes to a popup-->
+    <!-- Taskbar code and buttons-->
     <span><button mat-raised-button (click) = "openAbout()">
       About
     </button></span>
-
-    <span><a mat-raised-button routerLink ="/login" routerLinkActive="active">Get Started</a></span>
-
-    <button mat-raised-button (click) = "openLogin()">
+    <span><button mat-raised-button [matMenuTriggerFor]="appMenu">Get Started</button></span>
+    <span><button mat-raised-button (click) = "openLogin()">
       Login
-    </button></div>
+    </button>
+    </span>
+  <nav>
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item routerLink="/map">Gym Map</button>
+      <button mat-menu-item [matMenuTriggerFor]="subMenu">Workouts</button>
+    </mat-menu>
+    
+    <mat-menu #subMenu="matMenu">
+      <button mat-menu-item routerLink="/weekly-schedule">Weekly Schedule</button>
+      <button mat-menu-item routerLink="/workouts">All Workouts</button>
+    </mat-menu>
+  </nav>
+    
+  </div>
 
   </mat-toolbar>
 </div>
+
 
 <!--side toolbar-->
 <div>
  
 </div>
 
-<!-- Welcome message-->
-<body>
-<div>
-  <span></span>
-  
-  <mat-card class = "introCard">
-    <mat-card-header>
-      <mat-card-title>
-        Welcome to gainSpot
-      </mat-card-title>
-    </mat-card-header>
-    <div mat-card-content>
-      <p>
-      Test test test test test test test
-      </p>
-    </div>
-  </mat-card>
+<!--Page navigation-->
+<router-outlet></router-outlet>
 
-  <p></p>
-</div>
-
-<!--Image of our logo and other stuff-->
-
-<div>
-  <img class ="logo" src = "assets/images/gainspot.jpg">
-</div>
-</body>
