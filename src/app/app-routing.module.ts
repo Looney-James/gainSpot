@@ -10,9 +10,11 @@ import { FormsModule } from '@angular/forms';
 import { MapPageComponent } from './map-page/map-page.component';
 import { WeeklyScheduleComponent } from './weekly-schedule/weekly-schedule.component';
 import { WorkoutListComponent } from './workout-list/workout-list.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
+  {path:'', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutComponent},
   {path: 'map', component: MapPageComponent},

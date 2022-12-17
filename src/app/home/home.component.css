@@ -1,0 +1,29 @@
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .navbar{
+    justify-content: space-between;
+  }
+
+  span{
+    padding-right: 1rem;
+  }
+
+  .introCard{
+    max-width: 400px;
+  }
+
+a {
+  text-decoration: none;
+}
+
+.welcomeMsg{
+
+  font-size: 80px;
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: turquoise;
+}
