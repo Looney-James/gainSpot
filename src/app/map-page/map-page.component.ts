@@ -3,20 +3,20 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-map-page',
   templateUrl: './map-page.component.html',
-  styleUrls: ['./map-page.component.scss']
+  styleUrls: ['./map-page.component.css']
 })
-export class HelloWorldComponent implements OnInit {
+export class MapPageComponent implements OnInit {
 
 
   @ViewChild('googleMap', { static: true })
 
-  googleMapRef: ElementRef;
+  googleMapRef!: ElementRef;
 
 
 
   // Will contain the reference of rendered map instance 
 
-  map: google.maps.Map;
+  map!: google.maps.Map;
 
 
   constructor() { }
