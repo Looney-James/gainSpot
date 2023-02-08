@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { GetstartedComponent } from './getstarted/getstarted.component';
 import { HomeComponent } from './home/home.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
