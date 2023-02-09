@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 
-/*In case backbutton needs to be moved out of the login container
+/*In case backbutton needs to be moved out of the signup container
 Match background color with body */
 
 /*#backbutton {
@@ -28,19 +28,19 @@ body {
     display: flex;
 }
 
-#loginBox {
+#signupBox {
     padding: 250px;
     /*border-radius: 20px;*/
     border: 20px solid #fff;
     box-shadow: -15px -15px 45px rgba(255, 255, 255, 0.1), 15px 15px 45px rgba(0, 0, 0, 0.35);
 }
 
-#loginBox h1 {
+#signupBox h1 {
     font-size: 40px;
     letter-spacing: 0.1em;
 }
 
-#loginBox input {
+#signupBox input {
     /*display: flex;*/
     width: 300px;
     justify-content: center;

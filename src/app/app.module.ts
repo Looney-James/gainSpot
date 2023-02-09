@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { GetstartedComponent } from './getstarted/getstarted.component';
 import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     GetstartedComponent,
     HomeComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

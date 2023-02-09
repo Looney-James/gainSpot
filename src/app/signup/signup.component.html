@@ -1,16 +1,14 @@
-<!--Login form -->
-
 <!-- For icons -->
 <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel = "stylesheet" href = "login.component.css">
+<link rel = "stylesheet" href = "signup.component.css">
 
-<!-- Entire login form -->
+<!-- Entire Signup form -->
 <body>
-    <div id = "loginBox">
-        <h1 id = "font">LOGIN</h1>
+    <div id = "signupBox">
+        <h1 id = "font">CREATE YOUR ACCOUNT</h1>
         <div id = "rectangle"></div>
         <br>
-            <form (submit) = "loginUser($event)">
+            <form (submit) = "signupUser($event)">
                 <div id = "input">
                     <span>
                         <input id = "font" type = "text" placeholder = "username">&nbsp;
@@ -19,7 +17,19 @@
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "password" placeholder = "password">&nbsp;
+                        <input id = "font" type = "text" placeholder = "email address">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-envelope"></i>
+                    <br>
+                    <br>
+                    <span>
+                        <input id = "font" type = "password" placeholder = "new password">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-lock"></i>
+                    <br>
+                    <br>
+                    <span>
+                        <input id = "font" type = "password" placeholder = "confirm password">&nbsp;
                     </span>
                     <i class="fa-solid fa-lock"></i>
                     <br>
@@ -32,8 +42,8 @@
             </form>
             <br>
         <div>
-            <h2><div id = "font">New to gainSpot? </div></h2>
-            <div id = "font"><p>Create Your Account Here! <a href = "/signup" class = "signup"> Create Account </a></p></div>
+            <h2><div id = "font">Already a member?  </div></h2>
+            <div id = "font"><p>Login here! <a href = "/login" class = "login"> Login </a></p></div>
         </div>
         <div>
             <a href = "http://localhost:4200/">
@@ -43,5 +53,3 @@
             </a>
         </div>
     </div>
-</body>
-<!-- <span><button mat-raised-button routerLink = "/signup"> Sign-Up</button></span> -->

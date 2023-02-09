@@ -11,7 +11,7 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { WeeklyScheduleComponent } from './weekly-schedule/weekly-schedule.component';
 import { WorkoutListComponent } from './workout-list/workout-list.component';
 import { HomeComponent } from './home/home.component';
-
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -19,7 +19,8 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'map', component: MapPageComponent},
   {path: 'weekly-schedule', component: WeeklyScheduleComponent},
-  {path: 'workouts', component: WorkoutListComponent}
+  {path: 'workouts', component: WorkoutListComponent},
+  {path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
@@ -30,4 +31,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent]
