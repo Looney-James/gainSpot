@@ -1,5 +1,9 @@
 
 <div #googleMap id="gym-map"></div>
+
+<div *ngIf="apiLoaded | async">
+    <google-map [options]="options"></google-map>
+</div>
 <div>
     <img src = "assets/images/mapSC.jpg">
 </div>

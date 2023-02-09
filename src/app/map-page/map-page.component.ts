@@ -1,51 +1,23 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable, of} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-map-page',
   templateUrl: './map-page.component.html',
   styleUrls: ['./map-page.component.css']
 })
-export class MapPageComponent implements OnInit {
+export class MapPageComponent {
 
+  apiLoaded: Observable<boolean>;
 
-  @ViewChild('googleMap', { static: true })
-
-  googleMapRef!: ElementRef;
-
-
-
-  // Will contain the reference of rendered map instance 
-
-  map!: google.maps.Map;
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-
-    this.initMap();
-
-  }
-
-
-  private initMap(): void {
-
-
-
-    const mapOptions: google.maps.MapOptions = {
-
-      // Centered to Hyderabad, India
-
-      center: new google.maps.LatLng(17.412127, 78.474921),
-
-      zoom: 15,
-
-    };
-
-
-
-    this.map = new google.maps.Map(this.googleMapRef.nativeElement, mapOptions);
-
+  constructor(httpClient: HttpClient) {
+    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyA_xRyySDfI-Y2I1WL4Uo2SFgQsZ2GkZWw', 'callback')
+        .pipe(
+          map(() => true),
+          catchError(() => of(false)),
+        );
   }
 
 
