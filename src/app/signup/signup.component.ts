@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthService } from '../services/auth.service';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-signup',
@@ -9,9 +9,21 @@ import { AuthService } from '../services/auth.service';
 })
 export class SignupComponent implements OnInit {
 
+  signupUsers: any[] = [];
+  signupObj: any = {
+      userName: '',
+      email: '',
+      newPassword: '',
+      confirmPassword: ''
+  };
+
   constructor(private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
+    const localData = localStorage.getItem('signUpUsers');
+    if(localData != null) {
+      this.signupUsers = JSON.parse(localData);
+    }
   }
 
   signupUser(event: Event) {
@@ -19,4 +31,14 @@ export class SignupComponent implements OnInit {
     console.log(event)
   }
 
+  onSignup() {
+    this.signupUsers.push(this.signupObj);
+    localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
+    this.signupObj = {
+      userName: '',
+      email: '',
+      newPassword: '',
+      confirmPassword: ''
+    };
+  }
 }

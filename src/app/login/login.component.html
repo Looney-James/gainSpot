@@ -13,18 +13,18 @@
             <form (submit) = "loginUser($event)">
                 <div id = "input">
                     <span>
-                        <input id = "font" type = "text" placeholder = "username">&nbsp;
+                        <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "loginObj.userName" name = "first">&nbsp;
                     </span>
                     <i class="fa-solid fa-user"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "password" placeholder = "password">&nbsp;
+                        <input id = "font" type = "password" placeholder = "password" [(ngModel)] = "loginObj.password" name = "second">&nbsp;
                     </span>
                     <i class="fa-solid fa-lock"></i>
                     <br>
                     <br>
-                    <button mat-raised-button id = "font" type = "Submit" value = "Submit">
+                    <button mat-raised-button id = "font" type = "Submit" value = "Submit" (click) = "onLogin()">
                         Submit
                     </button>
                     <!--<input id = "font" type = "Submit" value = "Submit">-->

@@ -7,37 +7,36 @@
     <div id = "signupBox">
         <h1 id = "font">CREATE YOUR ACCOUNT</h1>
         <div id = "rectangle"></div>
-        <br>
+        <br>      
             <form (submit) = "signupUser($event)">
                 <div id = "input">
                     <span>
-                        <input id = "font" type = "text" placeholder = "username">&nbsp;
+                        <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "signupObj.userName" name = "first">&nbsp;
                     </span>
                     <i class="fa-solid fa-user"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "text" placeholder = "email address">&nbsp;
+                        <input id = "font" type = "email" placeholder = "email address" [(ngModel)] = "signupObj.email" name = "second">&nbsp;
                     </span>
                     <i class="fa-solid fa-envelope"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "password" placeholder = "new password">&nbsp;
+                        <input id = "font" type = "password" placeholder = "new password" [(ngModel)] = "signupObj.newPassword" name = "third">&nbsp;
                     </span>
                     <i class="fa-solid fa-lock"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "password" placeholder = "confirm password">&nbsp;
+                        <input id = "font" type = "password" placeholder = "confirm password" [(ngModel)] = "signupObj.confirmPassword" name = "fourth">&nbsp;
                     </span>
                     <i class="fa-solid fa-lock"></i>
                     <br>
                     <br>
-                    <button mat-raised-button id = "font" type = "Submit" value = "Submit">
+                    <button mat-raised-button id = "font" (click) = "onSignup()">
                         Submit
                     </button>
-                    <!--<input id = "font" type = "Submit" value = "Submit">-->
                 </div>
             </form>
             <br>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpBackend } from '@angular/common/http';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,7 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { GetstartedComponent } from './getstarted/getstarted.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,7 @@ import { SignupComponent } from './signup/signup.component';
     LoginComponent,
     GetstartedComponent,
     HomeComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -29,8 +32,11 @@ import { SignupComponent } from './signup/signup.component';
     MaterialModule,
     MatDialogModule,
     RouterModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
