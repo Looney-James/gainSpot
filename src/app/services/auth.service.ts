@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { lastValueFrom } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthenticationClient } from '../clients/authentication.client';
 
 @Injectable()
 export class AuthService {

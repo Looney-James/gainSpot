@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     GetstartedComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    SecretComponent,
   ],
   imports: [
     BrowserModule,

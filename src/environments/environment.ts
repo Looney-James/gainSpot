@@ -12,7 +12,8 @@ export const environment = {
     storageBucket: '[STORAGE_BUCKET]',
     messagingSenderId: '[MESSAGE_ID]',
     appId: '[WEB_APP_ID]'
-  }
+  },
+  apiUrl: 'https://localhost:4200'
 };
 
 /*
