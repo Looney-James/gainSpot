@@ -14,16 +14,9 @@
     
     <div>
       <a style = "color: white" href = "http://localhost:4200/"> gainSpot </a>
-
-      <!--<span><a style = "color: white" href = ></a></span>
-        Need for navigation bar-->
-
     </div>
 
     <div>
-    
-    <!-- Old Button
-    <span><a mat-raised-button routerLink ="/about" routerLinkActive="active">About</a></span>-->
     
     <!-- Created a new about button that goes to a popup-->
     <!-- Taskbar code and buttons-->
@@ -31,10 +24,8 @@
       About
     </button></span>
     <span><button mat-raised-button [matMenuTriggerFor]="appMenu">Get Started</button></span>
-    <span><button mat-raised-button (click) = "openLogin()">
-      Login
-    </button>
-    </span>
+    <span><button mat-raised-button routerLink = "/login"> Login</button></span>
+
   <nav>
     <mat-menu #appMenu="matMenu">
       <button mat-menu-item routerLink="/map">Gym Map</button>
@@ -57,5 +48,7 @@
 <div>
  
 </div>
+
 <!--Page navigation-->
 <router-outlet></router-outlet>
+

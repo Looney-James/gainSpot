@@ -1,0 +1,54 @@
+<!-- For icons -->
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel = "stylesheet" href = "signup.component.css">
+
+<!-- Entire Signup form -->
+<body>
+    <div id = "signupBox">
+        <h1 id = "font">CREATE YOUR ACCOUNT</h1>
+        <div id = "rectangle"></div>
+        <br>      
+            <form (submit) = "signupUser($event)">
+                <div id = "input">
+                    <span>
+                        <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "signupObj.userName" name = "first">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-user"></i>
+                    <br>
+                    <br>
+                    <span>
+                        <input id = "font" type = "email" placeholder = "email address" [(ngModel)] = "signupObj.email" name = "second">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-envelope"></i>
+                    <br>
+                    <br>
+                    <span>
+                        <input id = "font" type = "password" placeholder = "new password" [(ngModel)] = "signupObj.newPassword" name = "third">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-lock"></i>
+                    <br>
+                    <br>
+                    <span>
+                        <input id = "font" type = "password" placeholder = "confirm password" [(ngModel)] = "signupObj.confirmPassword" name = "fourth">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-lock"></i>
+                    <br>
+                    <br>
+                    <button mat-raised-button id = "font" (click) = "onSignup()">
+                        Submit
+                    </button>
+                </div>
+            </form>
+            <br>
+        <div>
+            <h2><div id = "font">Already a member?  </div></h2>
+            <div id = "font"><p>Login here! <a href = "/login" class = "login"> Login </a></p></div>
+        </div>
+        <div>
+            <a href = "http://localhost:4200/">
+                <button id = "font" mat-raised-button>
+                    Home
+                </button>
+            </a>
+        </div>
+    </div>

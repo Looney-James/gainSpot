@@ -1,23 +1,47 @@
-<!--Login button and pop up menu content-->
-<h1 align = "center">Sign up for notifications!</h1>
+<!--Login form -->
 
-<form (submit) = "loginUser($event)">
-    <mat-dialog-actions align = "center">
-    <input type = "text" placeholder = "Username">
-    <br>
-    <input type = "password" placeholder = "Password">
-    <br>
-    <input type = "Submit" value = "Submit">
-    </mat-dialog-actions>
-</form>
+<!-- For icons -->
+<link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel = "stylesheet" href = "login.component.css">
 
-<br>
-<br>
-<br>
-<div id = "mybutton">
-    <mat-dialog-actions align = "center">
-        <button mat-raised-button (click) = "closeLogin()">
-            Home
-        </button>
-    </mat-dialog-actions>
-</div>
+<!-- Entire login form -->
+<body>
+    <div id = "loginBox">
+        <h1 id = "font">LOGIN</h1>
+        <div id = "rectangle"></div>
+        <br>
+            <form (submit) = "loginUser($event)">
+                <div id = "input">
+                    <span>
+                        <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "loginObj.userName" name = "first">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-user"></i>
+                    <br>
+                    <br>
+                    <span>
+                        <input id = "font" type = "password" placeholder = "password" [(ngModel)] = "loginObj.password" name = "second">&nbsp;
+                    </span>
+                    <i class="fa-solid fa-lock"></i>
+                    <br>
+                    <br>
+                    <button mat-raised-button id = "font" type = "Submit" value = "Submit" (click) = "onLogin()">
+                        Submit
+                    </button>
+                    <!--<input id = "font" type = "Submit" value = "Submit">-->
+                </div>
+            </form>
+            <br>
+        <div>
+            <h2><div id = "font">New to gainSpot? </div></h2>
+            <div id = "font"><p>Create Your Account Here! <a href = "/signup" class = "signup"> Create Account </a></p></div>
+        </div>
+        <div>
+            <a href = "http://localhost:4200/">
+                <button id = "font" mat-raised-button>
+                    Home
+                </button>
+            </a>
+        </div>
+    </div>
+</body>
+<!-- <span><button mat-raised-button routerLink = "/signup"> Sign-Up</button></span> -->

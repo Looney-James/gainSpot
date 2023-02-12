@@ -1,28 +1,44 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { HttpBackend } from '@angular/common/http';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
 import { GetstartedComponent } from './getstarted/getstarted.component';
 import { HomeComponent } from './home/home.component';
-import { AgmCoreModule } from '@agm/core';
+import { SignupComponent } from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
+import { SecretComponent } from './secret/secret.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    LoginComponent,
     GetstartedComponent,
     HomeComponent,
+    SignupComponent,
+    SecretComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
+    MatDialogModule,
+    RouterModule,
+    HttpClientModule,
+    MatSnackBarModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
