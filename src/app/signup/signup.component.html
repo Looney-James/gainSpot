@@ -11,38 +11,42 @@
         <h1 id = "font">CREATE YOUR ACCOUNT</h1>
         <div id = "rectangle"></div>
         <br>      
-            <form signupUsers (ngSubmit) = "onSignup()">
-            <!-- <form [formGroup] = "signupUserForm" (ngSubmit) = "onSignup()"> -->
+            <!-- <form signupUsers (ngSubmit) = "onSignup()"> -->
+            <form [formGroup] = "reactiveform">
                 <div id = "input">
-                    <span>
-                         <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "signupObj.userName" name = "first" required>&nbsp;
-                    </span>
-                    <i class="fa-solid fa-user"></i>
+                    <div class="form-layout">
+                        <span>
+                            <input id = "font" type = "text" placeholder = "username" formControlName = "userName">
+                       </span>
+                       <i class="fa-solid fa-user"></i>
+                    </div>
                     <br>
                     <br>
-                    <span>
-                        <!-- <div class = "form-group"> -->
-                            <input id = "font" type = "email" placeholder = "email address" [(ngModel)] = "signupObj.email" name = "second" required>&nbsp;
-                    <!-- <span class = "error" *ngIf = "signupObj.email.invalid && signupObj.email.touched"> Please enter your email address.</span> -->
-                        <!-- </div> -->
-                    </span>
-                    <i class="fa-solid fa-envelope"></i>
+                    <div class="form-layout">
+                        <input id = "font" type = "email" placeholder = "email address"  formControlName = "email">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <span class = "error" *ngIf = "!reactiveform.controls['email'].valid"> Please enter your email address.</span>
                     <br>
                     <br>
-                    <span>
-                        <input id = "font" type = "password" placeholder = "new password" [(ngModel)] = "signupObj.newPassword" name = "third" required>&nbsp;
-                    </span>
-                    <i class="fa-solid fa-lock"></i>
+                    <div class="form-layout">
+                        <span>
+                            <input id = "font" type = "password" placeholder = "new password" formControlName = "newPassword">
+                        </span>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
                     <br>
                     <br>
-                    <span>
-                        <input id = "font" type = "password" placeholder = "confirm password" [(ngModel)] = "signupObj.confirmPassword" name = "fourth" required>&nbsp;
-                    </span>
-                    <i class="fa-solid fa-lock"></i>
+                    <div class="form-layout">
+                        <span>
+                            <input id = "font" type = "password" placeholder = "confirm password" formControlName= "confirmPassword" >
+                        </span>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
                     <br>
                     <br>
                     <!-- <p>Complete the form to submit.</p> -->
-                    <button mat-raised-button id = "font" (click) = "onSignup()">
+                    <button mat-raised-button id = "font" (click) = "onSignup()" [disabled]="reactiveform.valid">
                         Submit
                     </button>
                 </div>

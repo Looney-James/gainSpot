@@ -22,20 +22,18 @@ export class SignupComponent implements OnInit{
       confirmPassword: ''
   };
   
-  // signupUserForm = new FormGroup({
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('')
-  // })
+
 
   // get email(){return this.signupUserForm.get('email')}
 
-  // reactiveform!: FormGroup;
-  constructor(private dialogRef : MatDialog) { 
-    // this.reactiveform = this.formbuilder.group({
-    //   userName: new FormControl(),
-    //   newPassword: new FormControl(),
-    //   confirmPassword: new FormControl()
-    // })
+  reactiveform!: FormGroup;
+  constructor(private dialogRef : MatDialog, private formbuilder: FormBuilder) { 
+    this.reactiveform = this.formbuilder.group({
+      userName: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      newPassword: new FormControl('', Validators.required),
+      confirmPassword: new FormControl('', Validators.required)
+    })
   }
 
   ngOnInit(): void {
@@ -43,10 +41,9 @@ export class SignupComponent implements OnInit{
     if(localData != null) {
       this.signupUsers = JSON.parse(localData);
     }
-    // this.signupUserForm = new FormGroup({
-    //   email: new FormControl('', [Validators.required, Validators.email]),
-    //   password: new FormControl('')
-    // })
+    this.reactiveform.valueChanges.subscribe(val =>{
+      console.log(this.reactiveform.controls["userName"].value);
+    }) 
   }
 
   signupUser(event: Event) {
