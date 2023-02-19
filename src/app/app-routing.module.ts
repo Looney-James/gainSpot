@@ -13,6 +13,7 @@ import { WorkoutListComponent } from './workout-list/workout-list.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { SecretComponent } from './secret/secret.component';
+import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 
 const routes: Routes = [
   {path:'', component: HomeComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'weekly-schedule', component: WeeklyScheduleComponent},
   {path: 'workouts', component: WorkoutListComponent},
   {path: 'signup', component: SignupComponent},
-  {path: 'secret', component: SecretComponent}
+  {path: 'secret', component: SecretComponent},
+  {path: 'gymtraffic', component: GymTrafficComponent}
 ];
 
 @NgModule({
@@ -33,4 +35,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent]

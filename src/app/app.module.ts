@@ -14,8 +14,13 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, Validators } from '@angular/forms';
 import { SecretComponent } from './secret/secret.component';
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
+import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
+
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { SecretComponent } from './secret/secret.component';
     HomeComponent,
     SignupComponent,
     SecretComponent,
+    GymTrafficComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +42,10 @@ import { SecretComponent } from './secret/secret.component';
     RouterModule,
     HttpClientModule,
     MatSnackBarModule,
-    FormsModule
+    MatListModule,
+    FormsModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [SignupComponent],
   bootstrap: [AppComponent]

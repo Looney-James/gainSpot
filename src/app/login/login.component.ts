@@ -1,3 +1,5 @@
+// Made By Dustin Mader
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private dialogRef : MatDialog, private signupComponent: SignupComponent) { }
+  //constructor(private dialogRef : MatDialog, private signupComponent: SignupComponent) { }
 
   ngOnInit(): void {
   }
@@ -29,12 +31,12 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin() {
-    const isUserExist = this.signupComponent.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
-    if(isUserExist != undefined) {
-      alert('Logged in');
-    } else {
-      alert('Login did not work')
-    }
+    // const isUserExist = this.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
+    // if(isUserExist != undefined) {
+    //   alert('Logged in');
+    // } else {
+    //   alert('Login did not work')
+    // }
   }
 
 }

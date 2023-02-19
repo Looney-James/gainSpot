@@ -1,13 +1,18 @@
+// Made By Dustin Mader
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from '../models/user';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent implements OnInit{
 
   signupUsers: any[] = [];
   signupObj: any = {
@@ -16,14 +21,32 @@ export class SignupComponent implements OnInit {
       newPassword: '',
       confirmPassword: ''
   };
+  
+  // signupUserForm = new FormGroup({
+  //   email: new FormControl('', [Validators.required, Validators.email]),
+  //   password: new FormControl('')
+  // })
 
-  constructor(private dialogRef : MatDialog) { }
+  // get email(){return this.signupUserForm.get('email')}
+
+  // reactiveform!: FormGroup;
+  constructor(private dialogRef : MatDialog) { 
+    // this.reactiveform = this.formbuilder.group({
+    //   userName: new FormControl(),
+    //   newPassword: new FormControl(),
+    //   confirmPassword: new FormControl()
+    // })
+  }
 
   ngOnInit(): void {
     const localData = localStorage.getItem('signUpUsers');
     if(localData != null) {
       this.signupUsers = JSON.parse(localData);
     }
+    // this.signupUserForm = new FormGroup({
+    //   email: new FormControl('', [Validators.required, Validators.email]),
+    //   password: new FormControl('')
+    // })
   }
 
   signupUser(event: Event) {
@@ -40,5 +63,6 @@ export class SignupComponent implements OnInit {
       newPassword: '',
       confirmPassword: ''
     };
+    console.warn(this.signupObj.value);
   }
 }

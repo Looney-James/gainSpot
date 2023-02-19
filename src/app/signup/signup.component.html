@@ -1,39 +1,47 @@
+<!-- Made by Dustin Mader -->
+
 <!-- For icons -->
 <link rel = "stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel = "stylesheet" href = "signup.component.css">
 
 <!-- Entire Signup form -->
 <body>
+<div class = "container">
     <div id = "signupBox">
         <h1 id = "font">CREATE YOUR ACCOUNT</h1>
         <div id = "rectangle"></div>
         <br>      
-            <form (submit) = "signupUser($event)">
+            <form signupUsers (ngSubmit) = "onSignup()">
+            <!-- <form [formGroup] = "signupUserForm" (ngSubmit) = "onSignup()"> -->
                 <div id = "input">
                     <span>
-                        <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "signupObj.userName" name = "first">&nbsp;
+                         <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "signupObj.userName" name = "first" required>&nbsp;
                     </span>
                     <i class="fa-solid fa-user"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "email" placeholder = "email address" [(ngModel)] = "signupObj.email" name = "second">&nbsp;
+                        <!-- <div class = "form-group"> -->
+                            <input id = "font" type = "email" placeholder = "email address" [(ngModel)] = "signupObj.email" name = "second" required>&nbsp;
+                    <!-- <span class = "error" *ngIf = "signupObj.email.invalid && signupObj.email.touched"> Please enter your email address.</span> -->
+                        <!-- </div> -->
                     </span>
                     <i class="fa-solid fa-envelope"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "password" placeholder = "new password" [(ngModel)] = "signupObj.newPassword" name = "third">&nbsp;
+                        <input id = "font" type = "password" placeholder = "new password" [(ngModel)] = "signupObj.newPassword" name = "third" required>&nbsp;
                     </span>
                     <i class="fa-solid fa-lock"></i>
                     <br>
                     <br>
                     <span>
-                        <input id = "font" type = "password" placeholder = "confirm password" [(ngModel)] = "signupObj.confirmPassword" name = "fourth">&nbsp;
+                        <input id = "font" type = "password" placeholder = "confirm password" [(ngModel)] = "signupObj.confirmPassword" name = "fourth" required>&nbsp;
                     </span>
                     <i class="fa-solid fa-lock"></i>
                     <br>
                     <br>
+                    <!-- <p>Complete the form to submit.</p> -->
                     <button mat-raised-button id = "font" (click) = "onSignup()">
                         Submit
                     </button>
@@ -52,3 +60,4 @@
             </a>
         </div>
     </div>
+</div>
