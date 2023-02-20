@@ -20,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
     SignupComponent,
     SecretComponent,
     GymTrafficComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,

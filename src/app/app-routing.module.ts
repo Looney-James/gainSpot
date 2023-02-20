@@ -14,9 +14,10 @@ import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { SecretComponent } from './secret/secret.component';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  {path:'', component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutComponent},
   {path: 'map', component: MapPageComponent},
@@ -24,7 +25,9 @@ const routes: Routes = [
   {path: 'workouts', component: WorkoutListComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'secret', component: SecretComponent},
-  {path: 'gymtraffic', component: GymTrafficComponent}
+  {path: 'gymtraffic', component: GymTrafficComponent},
+  {path: 'gym/gym.name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({
