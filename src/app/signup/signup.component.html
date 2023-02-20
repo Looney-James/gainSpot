@@ -15,50 +15,47 @@
             <form [formGroup] = "reactiveform">
                 <div id = "input">
                     <div class="form-layout">
-                        <span>
-                            <input id = "font" type = "text" placeholder = "username" formControlName = "userName">
-                       </span>
-                       <i class="fa-solid fa-user"></i>
+                        <input class = "font" type = "text" placeholder = "username" formControlName = "userName">
+                        <i class="fa-solid fa-user"></i>
                     </div>
+                    <span class = "error font" *ngIf = "reactiveform.get('userName')?.errors?.['minlength'] || reactiveform.get('userName')?.errors?.['maxlength']"> Must be longer than 4~30 characters.</span>
                     <br>
                     <br>
                     <div class="form-layout">
-                        <input id = "font" type = "email" placeholder = "email address"  formControlName = "email">
+                        <input class = "font" type = "email" placeholder = "email address"  formControlName = "email">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
-                    <span class = "error" *ngIf = "!reactiveform.controls['email'].valid"> Please enter your email address.</span>
+                    <span class = "error font" *ngIf = "reactiveform.controls['email']?.errors?.['email']"> Please enter a valid email address.</span>
                     <br>
                     <br>
                     <div class="form-layout">
-                        <span>
-                            <input id = "font" type = "password" placeholder = "new password" formControlName = "newPassword">
-                        </span>
+                        <input class = "font" type = "password" placeholder = "new password" formControlName = "newPassword">
                         <i class="fa-solid fa-lock"></i>
                     </div>
+                    <span class = "error font" *ngIf = "reactiveform.get('newPassword')?.errors?.['minlength']"> Must be longer than 6 characters.</span>
                     <br>
                     <br>
                     <div class="form-layout">
-                        <span>
-                            <input id = "font" type = "password" placeholder = "confirm password" formControlName= "confirmPassword" >
-                        </span>
+                        <input class = "font" type = "password" placeholder = "confirm password" formControlName= "confirmPassword" >
                         <i class="fa-solid fa-lock"></i>
                     </div>
+                    <span class = "error font" *ngIf = "reactiveform.get('confirmPassword')?.errors?.['passwordmismatch']"> Passwords do not match.</span>
                     <br>
                     <br>
                     <!-- <p>Complete the form to submit.</p> -->
-                    <button mat-raised-button id = "font" (click) = "onSignup()" [disabled]="reactiveform.valid">
+                    <button mat-raised-button id = "font" (click) = "onSignup()">
                         Submit
                     </button>
                 </div>
             </form>
             <br>
         <div>
-            <h2><div id = "font">Already a member?  </div></h2>
-            <div id = "font"><p>Login here! <a href = "/login" class = "login"> Login </a></p></div>
+            <h2><div class = "font">Already a member?  </div></h2>
+            <div class = "font"><p>Login here! <a href = "/login" class = "login"> Login </a></p></div>
         </div>
         <div>
             <a href = "http://localhost:4200/">
-                <button id = "font" mat-raised-button>
+                <button class = "font" mat-raised-button>
                     Home
                 </button>
             </a>

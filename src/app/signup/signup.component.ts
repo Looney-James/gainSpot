@@ -3,7 +3,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { User } from '../models/user';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -15,24 +15,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 export class SignupComponent implements OnInit{
 
   signupUsers: any[] = [];
-  signupObj: any = {
-      userName: '',
-      email: '',
-      newPassword: '',
-      confirmPassword: ''
-  };
-  
-
-
-  // get email(){return this.signupUserForm.get('email')}
 
   reactiveform!: FormGroup;
   constructor(private dialogRef : MatDialog, private formbuilder: FormBuilder) { 
     this.reactiveform = this.formbuilder.group({
-      userName: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      newPassword: new FormControl('', Validators.required),
-      confirmPassword: new FormControl('', Validators.required)
+      userName: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])),
+      email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+      newPassword: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6), this.passwordValidator()])),
+      confirmPassword: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6) , this.passwordValidator()]))
     })
   }
 
@@ -52,14 +42,29 @@ export class SignupComponent implements OnInit{
   }
 
   onSignup() {
-    this.signupUsers.push(this.signupObj);
+    console.log('click')
+
+    const userName: string = this.reactiveform?.controls['userName']?.value;
+    const email: string = this.reactiveform?.controls['email']?.value;
+    const password: string = this.reactiveform?.controls['confirmPassword']?.value;
+    const signupUser = {
+      userName, email, password
+    }
+    
+    this.signupUsers.push(signupUser);
     localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
-    this.signupObj = {
-      userName: '',
-      email: '',
-      newPassword: '',
-      confirmPassword: ''
-    };
-    console.warn(this.signupObj.value);
+    this.reactiveform.reset();
+  }
+
+  passwordValidator() : ValidatorFn {
+    return (control: AbstractControl) : { [key: string]: any} | null =>
+    {
+      const password1: string = this.reactiveform?.controls['newPassword']?.value;
+      const confirmPassword: string = this.reactiveform?.controls['confirmPassword']?.value;
+      if(password1 !== confirmPassword){
+        return { passwordmismatch : true }
+      }
+      return null;
+    }
   }
 }
