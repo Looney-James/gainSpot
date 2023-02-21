@@ -26,7 +26,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'secret', component: SecretComponent},
   {path: 'gymtraffic', component: GymTrafficComponent},
-  {path: 'gym/gym.name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
+  // {path: 'gym/gym.name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
   {path: '**', component: PageNotFoundComponent}
 ];
 
