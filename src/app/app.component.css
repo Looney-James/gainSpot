@@ -27,3 +27,13 @@ a {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: turquoise;
 }
+
+.gainSpot {
+  position: relative;
+  left: -20%;
+}
+
+.buttons {
+  position: relative;
+  right: -22%;
+}

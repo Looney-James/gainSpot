@@ -33,7 +33,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SignupComponent,
     SecretComponent,
     GymTrafficComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +47,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatListModule,
     FormsModule,
     MatButtonModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [SignupComponent],
   bootstrap: [AppComponent]

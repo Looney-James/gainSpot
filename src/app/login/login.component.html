@@ -8,42 +8,43 @@
 
 <!-- Entire login form -->
 <body>
-    <div id = "loginBox">
-        <h1 id = "font">LOGIN</h1>
-        <div id = "rectangle"></div>
+<div class = "container">    
+    <div class = "loginBox">
+        <h1 class = "font">LOGIN</h1>
+        <div class = "rectangle"></div>
         <br>
-            <form (submit) = "loginUser($event)">
+        <br>
+        <br>
+            <form #loginForm = "ngForm" (ngSubmit)="onLogin(loginForm)">
                 <div id = "input">
-                    <span>
-                        <input id = "font" type = "text" placeholder = "username" [(ngModel)] = "loginObj.userName" name = "first">&nbsp;
-                    </span>
-                    <i class="fa-solid fa-user"></i>
+                    <div class= "form-layout">
+                        <input class = "font" ngModel type = "username" placeholder = "username" name = "userName" required>
+                        <i class="fa-solid fa-user"></i>
+                    </div>
                     <br>
+                    <div class = "form-layout">
+                        <input class = "font" ngModel type = "password" placeholder = "password" name = "password" required>
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
                     <br>
-                    <span>
-                        <input id = "font" type = "password" placeholder = "password" [(ngModel)] = "loginObj.password" name = "second">&nbsp;
-                    </span>
-                    <i class="fa-solid fa-lock"></i>
-                    <br>
-                    <br>
-                    <button mat-raised-button id = "font" type = "Submit" value = "Submit" (click) = "onLogin()">
+                    <button mat-raised-button class = "font" type = "Submit" value = "Submit" [disabled] = "loginForm.invalid">
                         Submit
                     </button>
-                    <!--<input id = "font" type = "Submit" value = "Submit">-->
+                    <!--<input class = "font" type = "Submit" value = "Submit">-->
                 </div>
             </form>
             <br>
         <div>
-            <h2><div id = "font">New to gainSpot? </div></h2>
-            <div id = "font"><p>Create Your Account Here! <a href = "/signup" class = "signup"> Create Account </a></p></div>
+            <h2><div class = "font">New to gainSpot? </div></h2>
+            <div class = "font"><p>Create Your Account Here! <a href = "/signup" class = "signup"> Create Account </a></p></div>
         </div>
         <div>
             <a href = "http://localhost:4200/">
-                <button id = "font" mat-raised-button>
+                <button class = "font" mat-raised-button>
                     Home
                 </button>
             </a>
         </div>
     </div>
+</div>
 </body>
-<!-- <span><button mat-raised-button routerLink = "/signup"> Sign-Up</button></span> -->

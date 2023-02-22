@@ -21,7 +21,18 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    // Good chance this will be needed if polyfills are used but try to avoid!!
+    // "paths": {
+    //   "zlib": ["node_modules/browserify-zlib"],
+    //   "querystring": ["node_modules/querystring-es3"],
+    //   "path": ["node_modules/path-browserify"],
+    //   "url": ["node_modules/url"],
+    //   "crypto": ["node_modules/crypto-browserify"],
+    //   "stream": ["node_modules/stream-browserify"],
+    //   "http": ["node_modules/stream-http"],
+    //   "util": ["node_modules/util"]
+    // }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
