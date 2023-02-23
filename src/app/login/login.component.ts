@@ -34,10 +34,13 @@ export class LoginComponent implements OnInit {
 
     const url = 'https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json';
 
+    // Retrieves data by checking for username in the database
     this.httpClient.get(url, {params: new HttpParams()
       .set('orderBy', '"userName"')
       .set('equalTo', `"${loginForm.value.userName}"`),
     })
+    // Will allow the user to go to the homepage if the login information matches what is in the database.
+    // Still needs to check for password and have better authentication.
     .subscribe((user) => {
       if(Object.keys(user)?.length > 0) {
         this.router.navigate(['']);

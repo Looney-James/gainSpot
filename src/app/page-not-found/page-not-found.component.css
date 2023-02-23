@@ -8,9 +8,9 @@
 
 .container {
     align-items: center;
-    position:relative;
+    /* position:relative;
     top: 5%;
-    left: 29%;
+    left: 29%; */
 }
 
 .hideNavBar {
