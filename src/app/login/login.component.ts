@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../services/auth.service';
 import { SignupComponent } from '../signup/signup.component';
 import { User } from '../models/user';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -31,9 +31,16 @@ export class LoginComponent implements OnInit {
 
     console.log(loginForm.value);
 
-    this.httpClient.get('https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json')
+    const url = 'https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json';
+
+    this.httpClient.get(url, {params: new HttpParams()
+      .set('orderBy', '"userName"')
+      .set('equalTo', `"${loginForm.value.userName}"`),
+    })
     .subscribe((users) => {
-      console.log(users);
+      // if(Object.keys(user)?.length > 0) {
+        console.log(users);
+      // }
     });
 
     // const isUserExist = this.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);

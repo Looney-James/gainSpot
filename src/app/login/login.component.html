@@ -18,12 +18,12 @@
             <form #loginForm = "ngForm" (ngSubmit)="onLogin(loginForm)">
                 <div id = "input">
                     <div class= "form-layout">
-                        <input class = "font" ngModel type = "username" placeholder = "username" name = "userName" required>
+                        <input ngModel class = "font" type = "username" placeholder = "username" name = "userName" required>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <br>
                     <div class = "form-layout">
-                        <input class = "font" ngModel type = "password" placeholder = "password" name = "password" required>
+                        <input ngModel class = "font" type = "password" placeholder = "password" name = "password" required>
                         <i class="fa-solid fa-lock"></i>
                     </div>
                     <br>
