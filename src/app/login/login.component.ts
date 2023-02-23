@@ -7,6 +7,7 @@ import { SignupComponent } from '../signup/signup.component';
 import { User } from '../models/user';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'login',
@@ -17,7 +18,7 @@ import { NgForm } from '@angular/forms';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private dialogRef : MatDialog, private httpClient: HttpClient) {}
+  constructor(private dialogRef : MatDialog, private httpClient: HttpClient, private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -37,10 +38,11 @@ export class LoginComponent implements OnInit {
       .set('orderBy', '"userName"')
       .set('equalTo', `"${loginForm.value.userName}"`),
     })
-    .subscribe((users) => {
-      // if(Object.keys(user)?.length > 0) {
-        console.log(users);
-      // }
+    .subscribe((user) => {
+      if(Object.keys(user)?.length > 0) {
+        this.router.navigate(['']);
+        console.log(user);
+      }
     });
 
     // const isUserExist = this.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
