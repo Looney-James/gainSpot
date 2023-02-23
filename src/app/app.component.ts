@@ -14,6 +14,8 @@ export class AppComponent {
 
   constructor(private dialogRef : MatDialog) {}
 
+  // Made by Dustin Mader
+  // Displays the popup in the homepage.
   openAbout(){
     const dialogConfig = new MatDialogConfig();
     //dialogConfig.disableClose = true;
@@ -27,17 +29,18 @@ export class AppComponent {
     this.dialogRef.open(AboutComponent, dialogConfig);
   }
 
-  openLogin(){
-    const dialogConfig = new MatDialogConfig();
-    //dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.position = {
-      'top': '84px',
-    };
-    dialogConfig.width = '600px';
-    dialogConfig.height = '300px';
+  // Most likely won't be needed as I reimplemented the login popup to a different page
+  // openLogin(){
+  //   const dialogConfig = new MatDialogConfig();
+  //   //dialogConfig.disableClose = true;
+  //   dialogConfig.autoFocus = true;
+  //   dialogConfig.position = {
+  //     'top': '84px',
+  //   };
+  //   dialogConfig.width = '600px';
+  //   dialogConfig.height = '300px';
 
-    this.dialogRef.open(LoginComponent, dialogConfig);
-  }
+  //   this.dialogRef.open(LoginComponent, dialogConfig);
+  // }
 
 }

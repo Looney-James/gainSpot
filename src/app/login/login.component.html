@@ -18,7 +18,8 @@
             <form #loginForm = "ngForm" (ngSubmit)="onLogin(loginForm)">
                 <div id = "input">
                     <div class= "form-layout">
-                        <input ngModel class = "font" type = "username" placeholder = "username" name = "userName" required>
+                        <!-- <input ngModel class = "font" type = "username" placeholder = "username" name = "userName" required> -->
+                        <input ngModel class = "font" type = "email" placeholder = "email" name = "email" required>
                         <i class="fa-solid fa-user"></i>
                     </div>
                     <br>

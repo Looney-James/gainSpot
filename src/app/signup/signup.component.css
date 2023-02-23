@@ -63,6 +63,10 @@ body {
     /*flex-direction: column;*/
 }
 
+.blue-snackbar {
+    background: #f8fafa;
+}
+
 /* .conatainer {
     width: 100%;
     height: 100%;
