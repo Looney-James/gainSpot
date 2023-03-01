@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { response } from 'express';
 
 @Component({
   selector: 'app-signup',
@@ -80,7 +81,7 @@ export class SignupComponent implements OnInit{
           this.reactiveform.reset();
 
           this.snackBar.open("Account successfully created!", "Done",{
-            duration: 2000,
+            duration: 6000,
             verticalPosition: "top",
             horizontalPosition: "center",
             panelClass: ['purple-snackbar']
@@ -93,7 +94,7 @@ export class SignupComponent implements OnInit{
           let authFailMessage = "Signup was unsuccessful. Please try again.    " + error.error.error.message;
 
           this.snackBar.open(authFailMessage, "Done",{
-            duration: 2000,
+            duration: 6000,
             verticalPosition: "top",
             horizontalPosition: "center",
             panelClass: ['purple-snackbar']

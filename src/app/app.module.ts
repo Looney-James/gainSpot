@@ -21,6 +21,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     SignupComponent,
     SecretComponent,
     GymTrafficComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

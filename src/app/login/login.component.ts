@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Check that it is working
   // loginUser(event: Event) {
   //   event.preventDefault()
   //   console.log(event)
@@ -38,6 +39,7 @@ export class LoginComponent implements OnInit {
 
     console.log(loginForm.value);
 
+    // Database url
     // const url = 'https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json';
 
     this.httpClient.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebase.apiKey}`, 
@@ -47,7 +49,7 @@ export class LoginComponent implements OnInit {
       () => {
 
           this.snackBar.open("Successully Logged In!", "Done",{
-            duration: 2000,
+            duration: 6000,
             verticalPosition: "top",
             horizontalPosition: "center",
             panelClass: ['purple-snackbar']
@@ -61,7 +63,7 @@ export class LoginComponent implements OnInit {
           let authFailMessage = "Login did not work.    " + error.error.error.message;
 
           this.snackBar.open(authFailMessage, "Done",{
-            duration: 2000,
+            duration: 6000,
             verticalPosition: "top",
             horizontalPosition: "center",
             panelClass: ['purple-snackbar']
