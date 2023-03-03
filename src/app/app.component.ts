@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+// import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +12,9 @@ import { LoginComponent } from './login/login.component';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent{
+  
   title = 'gainSpot';
-
-  constructor(private dialogRef : MatDialog) {}
 
   // Made by Dustin Mader
   // Displays the popup in the homepage.
@@ -29,18 +31,27 @@ export class AppComponent {
     this.dialogRef.open(AboutComponent, dialogConfig);
   }
 
-  // Most likely won't be needed as I reimplemented the login popup to a different page
-  // openLogin(){
-  //   const dialogConfig = new MatDialogConfig();
-  //   //dialogConfig.disableClose = true;
-  //   dialogConfig.autoFocus = true;
-  //   dialogConfig.position = {
-  //     'top': '84px',
-  //   };
-  //   dialogConfig.width = '600px';
-  //   dialogConfig.height = '300px';
+ isLoggedIn: boolean = false;
 
-  //   this.dialogRef.open(LoginComponent, dialogConfig);
-  // }
+ constructor(
+  private dialogRef : MatDialog) {}
+  // private angularFireAuth: AngularFireAuth
+
+// ngOnInit(): void {
+//   // this.angularFireAuth.authState.subscribe(user => {
+//   //   this.isLoggedIn = !!user;
+//   })
+// }
+
+// ngOnDestroy(): void {
+//   throw new Error('Method not implemented.');
+// }
+
+
+
+
+ openLogout() {
+  
+ }
 
 }

@@ -22,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     MatListModule,
     FormsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule,
+    AngularFireModule
   ],
   providers: [SignupComponent],
   bootstrap: [AppComponent]
