@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpBackend } from '@angular/common/http';
 
 @Component({
   selector: 'app-workout-list',

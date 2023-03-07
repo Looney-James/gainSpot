@@ -1,9 +1,9 @@
-<!--Workout page where there will be work outs listed and generated based on what the user wants-->
+<!--Workout page where there will be work outs listed and generated based on what the user wants-->'
 <div>
   <mat-tab-group mat-stretch-tabs ="false" mat-alight-tabs = "start">
     <mat-tab label="Current Workouts">
       <div>
-        <button mat-raised-button (click) = "openInput()">
+        <button mat-raised-button>
           Add Workout
         </button>
       </div>
@@ -12,6 +12,20 @@
       <div>
         Display
       </div>
+    </mat-tab>
+    <mat-tab label = "Add Workout">
+      <form>
+        <mat-form-field>
+          <input matInput placeholder="Workout Name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type = "number" placeholder= "Amount of Sets">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type = "number" placeholder= "Amount of Reps">
+        </mat-form-field>
+        <button mat-raised-button type = "button">Save</button>
+      </form>
     </mat-tab>
   </mat-tab-group>
 </div>
