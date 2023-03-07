@@ -20,4 +20,5 @@ describe('WorkoutListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
 });

@@ -12,4 +12,6 @@ export class WorkoutListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
 }

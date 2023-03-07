@@ -1,9 +1,17 @@
 <!--Workout page where there will be work outs listed and generated based on what the user wants-->
-<mat-list>
-    <mat-list-item><button>Workout 1</button></mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item><button>Workout 2</button></mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item><button>Workout 3</button></mat-list-item>
-  </mat-list>
-  
+<div>
+  <mat-tab-group mat-stretch-tabs ="false" mat-alight-tabs = "start">
+    <mat-tab label="Current Workouts">
+      <div>
+        <button mat-raised-button (click) = "openInput()">
+          Add Workout
+        </button>
+      </div>
+    </mat-tab>
+    <mat-tab label="Previous Workouts">
+      <div>
+        Display
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>
