@@ -22,7 +22,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EquipmentComponent } from './equipment/equipment.component';
-import { EquipmentService } from './equipment/equipment.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { initializeApp } from "firebase/app";
@@ -71,7 +70,7 @@ const analytics = getAnalytics(app);
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule
   ],
-  providers: [SignupComponent, EquipmentService],
+  providers: [SignupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
