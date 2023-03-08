@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Report Equipment</h1>
+
+  <form (ngSubmit)="submitReport()" #reportForm="ngForm">
+
+    <div class="form-group">
+      <label for="name">Equipment Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="selectedEquipment.name">
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select class="form-control" id="status" name="status" required [(ngModel)]="selectedEquipment.status">
+        <option value="working">Working</option>
+        <option value="broken">Broken</option>
+        <option value="needs maintenance">Needs Maintenance</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="comments">Additional Comments:</label>
+      <textarea class="form-control" id="comments" name="comments" [(ngModel)]="selectedEquipment.comments"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

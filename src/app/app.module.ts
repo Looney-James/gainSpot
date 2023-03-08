@@ -21,8 +21,27 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { EquipmentService } from './equipment/equipment.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
+  authDomain: "gainspot-3cbad.firebaseapp.com",
+  databaseURL: "https://gainspot-3cbad-default-rtdb.firebaseio.com",
+  projectId: "gainspot-3cbad",
+  storageBucket: "gainspot-3cbad.appspot.com",
+  messagingSenderId: "985128281237",
+  appId: "1:985128281237:web:0dde6ed3ef30b54685e79c",
+  measurementId: "G-D3ZEYWJ1EZ"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
 @NgModule({
   declarations: [
@@ -35,6 +54,7 @@ import { WorkoutFormComponent } from './workout-form/workout-form.component';
     SecretComponent,
     GymTrafficComponent,
     PageNotFoundComponent,
+    EquipmentComponent,
     WorkoutFormComponent
   ],
   imports: [
@@ -49,9 +69,11 @@ import { WorkoutFormComponent } from './workout-form/workout-form.component';
     MatListModule,
     FormsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
-  providers: [SignupComponent],
+  providers: [SignupComponent, EquipmentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
