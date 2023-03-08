@@ -3,29 +3,31 @@
   <mat-tab-group mat-stretch-tabs ="false" mat-alight-tabs = "start">
     <mat-tab label="Current Workouts">
       <div>
-        <button mat-raised-button>
+        <button mat-raised-button (click) = "openDialog()" style="margin-left: 20px; margin-top: 20px;">
           Add Workout
         </button>
       </div>
+    <div *ngIf="workouts.length > 0">
+      <ul>
+        <li *ngFor = "let workout of workouts">
+          <mat-checkbox [(ngModel)]="workout.selected"></mat-checkbox>
+          <strong>{{ workout.name }}</strong> Sets: {{ workout.sets}} Reps: {{ workout.reps}}
+        </li>
+      </ul>
+      <button mat-raised-button color = "warn" (click) = "deleteWorkoutsSelected()">Delete</button>
+
+    </div>
+
     </mat-tab>
     <mat-tab label="Previous Workouts">
       <div>
-        Display
+        <ul>
+          <li *ngFor = "let workout of workouts">
+            <strong>{{ workout.name }}</strong>: {{ workout.sets}} : {{ workout.reps}}
+          </li>
+        </ul>
       </div>
     </mat-tab>
-    <mat-tab label = "Add Workout">
-      <form>
-        <mat-form-field>
-          <input matInput placeholder="Workout Name">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type = "number" placeholder= "Amount of Sets">
-        </mat-form-field>
-        <mat-form-field>
-          <input matInput type = "number" placeholder= "Amount of Reps">
-        </mat-form-field>
-        <button mat-raised-button type = "button">Save</button>
-      </form>
-    </mat-tab>
+  
   </mat-tab-group>
 </div>

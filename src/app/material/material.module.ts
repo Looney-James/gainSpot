@@ -11,6 +11,7 @@ import { MatDividerModule} from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -23,6 +24,7 @@ const MaterialComponents = [
   MatListModule,
   MatTabsModule,
   MatFormFieldModule,
+  MatCheckboxModule,
 ]
 
 @NgModule({
