@@ -46,7 +46,7 @@ export class SignupComponent implements OnInit{
       this.signupUsers = JSON.parse(localData);
     }
     this.reactiveform.valueChanges.subscribe(val =>{
-      console.log(this.reactiveform.controls["userName"].value);
+      console.log(this.reactiveform.controls["email"].value);
     }) 
   }
 

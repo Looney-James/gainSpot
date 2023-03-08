@@ -10,6 +10,8 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { FirebaseUISignInSuccessWithAuthResult, FirebaseUISignInFailure } from 'firebaseui-angular';
 
 @Component({
   selector: 'login',
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
     private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
+    
   }
 
   // Check that it is working
@@ -34,6 +37,21 @@ export class LoginComponent implements OnInit {
   //   event.preventDefault()
   //   console.log(event)
   // }
+
+  // successCallback(signInSuccessData : FirebaseUISignInSuccessWithAuthResult)
+  //   {
+  //     console.log("Login success", signInSuccessData);
+  //   }
+    
+  //   errorCallback(errorData : FirebaseUISignInFailure)
+  //   {
+  //     console.warn("Login failed", errorData);
+  //   }
+    
+  //   uiShownCallback()
+  //   {
+  //     console.log("UI is shown");
+  //   }
 
   onLogin(loginForm: NgForm) {
 
@@ -55,6 +73,8 @@ export class LoginComponent implements OnInit {
             panelClass: ['purple-snackbar']
           })
 
+          localStorage.setItem("user", loginForm.value["email"])
+          console.log(localStorage.getItem("user"))
           this.router.navigate(['/']);
 
           // firebase.database()

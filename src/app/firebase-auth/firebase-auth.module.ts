@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as firebaseui from 'firebaseui';
-import { firebase } from 'firebaseui-angular'
+import { firebase, FirebaseUIModule } from 'firebaseui-angular'
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -36,7 +39,13 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+  ], exports: [
+    AngularFireModule,
+    AngularFireAuthModule,
+    FirebaseUIModule
   ]
 })
-export class FirebaseAuthMdule {}
+export class FirebaseAuthModule {}

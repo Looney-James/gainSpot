@@ -5,6 +5,8 @@ import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { MatDialogModule } from '@angular/material/dialog';
+import { getAuth } from 'firebase/auth'
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent{
+export class AppComponent implements OnInit, OnDestroy{
   
   title = 'gainSpot';
 
@@ -34,24 +36,39 @@ export class AppComponent{
  isLoggedIn: boolean = false;
 
  constructor(
-  private dialogRef : MatDialog) {}
-  // private angularFireAuth: AngularFireAuth
+  private dialogRef : MatDialog,
+  private angularFireAuth : AngularFireAuth) {}
 
-// ngOnInit(): void {
-//   // this.angularFireAuth.authState.subscribe(user => {
-//   //   this.isLoggedIn = !!user;
-//   })
-// }
+  ngOnInit(): void {
+    // const auth = getAuth();
+    // const user = auth.currentUser;
 
-// ngOnDestroy(): void {
-//   throw new Error('Method not implemented.');
-// }
+    // const user = this.angularFireAuth.authState.subscribe();
+    // console.log(user);
 
+    // this.angularFireAuth.authState.subscribe(user => {
+    //   if (user) {
+    //   console.log(user);
+    //   this.isLoggedIn = !!user;
+    //   } else {
+    //     console.log("error");
+    //   }
+    // })
 
+    console.log(localStorage.getItem("user"));
+    this.isLoggedIn = true;
+  }
 
+  logout() {
+    this.angularFireAuth.signOut().then(() => {
+      window.alert('Logged Out!')
+      this.isLoggedIn = false;
+      localStorage.setItem("user", "")
+    })
+  }
 
- openLogout() {
-  
- }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
 
+  }
 }

@@ -24,6 +24,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+import { FirebaseAuthModule } from './firebase-auth/firebase-auth.module';
+import { initializeApp } from 'firebase/app';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     MatButtonModule,
     ReactiveFormsModule,
     AngularFireAuthModule,
-    AngularFireModule
+    AngularFireModule.initializeApp(environment.firebase),
+    FirebaseAuthModule
+    // provideFirebaseApp(() => initializeApp(environment.firebase))
   ],
   providers: [SignupComponent],
   bootstrap: [AppComponent]
