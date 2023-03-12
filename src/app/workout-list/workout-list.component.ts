@@ -67,9 +67,17 @@ export class WorkoutListComponent implements OnInit {
       map(workouts => workouts.filter(workout => workout.selected))
     ).subscribe(deleteWorkouts => { 
       deleteWorkouts.forEach(workout => {
-        this.db.list<Workout>('workouts').remove(workout.id);
+        this.db.list<Workout>('workouts').remove(workout.id).then(() => {
+          console.log('Workout ${workout.id} deleted');
+        }, (error) => {
+          console.log('Error deleting workout ${workout.id}: ${error}');
+        });
       })
     });
+  }
+
+  selectWorkout(workout: Workout): void{
+    workout.selected = !workout.selected;
   }
 }
 
