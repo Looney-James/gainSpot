@@ -1,26 +1,7 @@
 <div class="container">
-  <div id="formBox">
-    <h1 id="font">Report Equipment</h1>
-    <div id="rectangle"></div>
+  <h1>Report Equipment</h1>
 
-    <br>
-
-    <form [formGroup]="reportForm" (ngSubmit)="submitReport()">
-      <div id="input">
-        <div class="form-group">
-          <label for="gym">Gym:</label>
-          <select class="form-control" id="gym" formControlName="gym">
-            <option value="" disabled selected>Select gym</option>
-            <option value="E.L. Wiegand Fitness Center" class="font ">EL Wiegand Fitness Center</option>
-            <option value="Anytime Fitness" class="font">Anytime Fitness</option>
-            <option value="South Reno Athletic Club" class="font">South Reno Athletic Club</option>
-            <option value="Double Edge Fitness - Midtown" class="font">Double Edge Fitness - Midtown</option>
-            <option value="American Iron Gym" class="font">American Iron Gym</option>
-          </select>
-          <div *ngIf="reportForm.get('gym')?.invalid && reportForm.get('gym')?.touched">
-            <small class="text-danger">Gym is required.</small>
-          </div>
-        </div>
+  <form (ngSubmit)="submitReport()" #reportForm="ngForm">
 
         <div class="form-group">
           <label for="name">Equipment Name:</label>
