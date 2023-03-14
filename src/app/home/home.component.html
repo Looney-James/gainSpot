@@ -1,53 +1,21 @@
 <!--Home page navigation-->
 
-
-
-<!--This code written in HTML and CSS-->
-<!--Team members Gerard, Dustin, Matt, and James contributed to this-->
-<!--Utliized Angular Material for its components and libraries for a better user experience-->
-<!-- Below is code for the homepage-->
-
-
-
-<!--Tool bar-->
-<div>
-
-  <mat-toolbar style = "background-color: turquoise; color: white" class = "navbar">
-    
-    <div class = "gainSpot">
-      <a style = "color: white" href = "http://localhost:4200/"> gainSpot </a>
-    </div>
-  </mat-toolbar>
-</div>
-
-
-
-<!--New menu style-->
-<div id = "menu">
-    
-  <!-- Created a new about button that goes to a popup-->
-  <!-- Taskbar code and buttons-->
-  <span><button mat-raised-button (click) = "openAbout()">About</button></span>
-  <span><button mat-raised-button [matMenuTriggerFor]="appMenu">Get Started</button></span>
-  <span><button mat-raised-button routerLink = "/login"> Login</button></span>
-
-<nav>
-  <mat-menu #appMenu="matMenu">
-    <button mat-menu-item routerLink="/map">Gym Map</button>
-    <button mat-menu-item [matMenuTriggerFor]="subMenu">Workouts</button>
-    <button mat-menu-item routerLink="/gymtraffic">Gym Traffic</button>
-    <button mat-menu-item routerLink="/equipment">Report Equipment</button>
-  </mat-menu>
+<style>
+    body{
+      background-image: url('assets/images/BACKGROUND.jpg');
+    }
+  </style>
   
-  <mat-menu #subMenu="matMenu">
-    <button mat-menu-item routerLink="/weekly-schedule">Weekly Schedule</button>
-    <button mat-menu-item routerLink="/workouts">All Workouts</button>
-  </mat-menu>
-</nav>
+  <body>
+  <!--Image of our logo and other stuff-->
   
-</div>
-
-
-<!--Page navigation-->
-<router-outlet></router-outlet>
-
+  <div>
+    <img class ="logo" src = "assets/images/gainspot.jpg">
+  </div>
+  
+  <div style = "margin-top: 30px;">
+  <h1 class="welcomeMsg">
+    Welcome to gainSpot!
+  </h1>
+  </div>
+  </body>

@@ -60,10 +60,3 @@ Match background color with body */
 .form-layout i {
     padding-left: 8px;
 }
-
-.buttonfloat{
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    box-shadow: 2px 2px 5px rgba(0,0,0, 0.25);
-}

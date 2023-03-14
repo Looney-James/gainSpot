@@ -10,10 +10,12 @@
       <br>
       
       <div>
-        <button mat-raised-button (click) = "openDialog()" class = "buttonfloat" style = "font-size: large;">
+        <button mat-raised-button (click) = "openDialog()" style="margin-left: 20px; margin-top: 20px;">
           Add Workout
         </button>
       </div>
+      <br>
+      <br>
     <div *ngIf="workouts | async as workouts">
       <ul>
         <li *ngFor = "let workout of workouts">
