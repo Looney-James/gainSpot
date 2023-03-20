@@ -27,3 +27,39 @@ a {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: turquoise;
 }
+
+/* New html stuff */
+body{
+  background-color:rgba(157, 208, 222, 0.382);;
+  margin: 0px;
+}
+
+#menu{
+  height: 100vh;
+  display:flex;
+  align-items: center;
+}
+
+.menu-item{
+  color: white;
+  font-size: clamp(3rem, 8vw, 8rem);
+  font-family:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+  display: block;
+  text-decoration: none;
+  padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
+}
+
+/*Menu item design*/
+#menu-items{
+  margin-left: clamp(4rem, 20vw, 48rem);
+}
+
+#menu-items:hover > .menu-item{
+  opacity: 0.3;
+}
+
+#menu-items:hover > .menu-item :hover{
+  opacity: 1;
+}
+

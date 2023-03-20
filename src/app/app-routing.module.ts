@@ -16,6 +16,7 @@ import { SecretComponent } from './secret/secret.component';
 import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EquipmentComponent } from './equipment/equipment.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'gymtraffic', component: GymTrafficComponent},
   {path: 'equipment', component: EquipmentComponent},
   {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
-  {path: '**', component: PageNotFoundComponent}
+  {path: '**', component: PageNotFoundComponent},
+  {path: 'profile', component: ProfileComponent}
 ];
 
 @NgModule({
@@ -40,4 +42,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent]
