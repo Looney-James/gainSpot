@@ -28,6 +28,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -55,7 +56,8 @@ const analytics = getAnalytics(app);
     GymTrafficComponent,
     PageNotFoundComponent,
     EquipmentComponent,
-    WorkoutFormComponent
+    WorkoutFormComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
