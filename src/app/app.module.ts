@@ -39,6 +39,7 @@ export const firebaseConfig = {
   appId: "1:985128281237:web:0dde6ed3ef30b54685e79c",
   measurementId: "G-D3ZEYWJ1EZ"
 };
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -55,7 +56,8 @@ const analytics = getAnalytics(app);
     GymTrafficComponent,
     PageNotFoundComponent,
     EquipmentComponent,
-    WorkoutFormComponent
+    WorkoutFormComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
