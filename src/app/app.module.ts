@@ -29,6 +29,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ProfileComponent } from './profile/profile.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -58,7 +60,8 @@ const analytics = getAnalytics(app);
     PageNotFoundComponent,
     EquipmentComponent,
     WorkoutFormComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,8 @@ const analytics = getAnalytics(app);
     MatButtonModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
   ],
   providers: [SignupComponent, EquipmentService],
   bootstrap: [AppComponent]
