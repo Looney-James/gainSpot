@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: '[PROJECT_API_KEY]',
-    authDomain: '[PROJECT_AUTH_DOMAIN]',
-    databaseURL: '[PROJECT_DB_URL]',
-    projectId: '[PROJECT_ID]',
-    storageBucket: '[STORAGE_BUCKET]',
-    messagingSenderId: '[MESSAGE_ID]',
-    appId: '[WEB_APP_ID]'
+    apiKey: 'AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI',
+    authDomain: 'gainspot-3cbad.firebaseapp.com',
+    databaseURL: 'https://gainspot-3cbad-default-rtdb.firebaseio.com',
+    projectId: 'gainspot-3cbad',
+    storageBucket: 'gainspot-3cbad.appspot.com',
+    messagingSenderId: '985128281237',
+    appId: '1:985128281237:web:0dde6ed3ef30b54685e79c'
   },
   apiUrl: 'https://localhost:4200'
 };

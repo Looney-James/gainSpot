@@ -22,16 +22,16 @@
                     <span class = "error font" *ngIf = "reactiveform.get('userName')?.errors?.['minlength'] || reactiveform.get('userName')?.errors?.['maxlength']"> Must be longer than 4~30 characters.</span>
                     <br>
                     <div class="form-layout">
-                        <input class = "font" type = "email" placeholder = "email address"  formControlName = "email">
+                        <input ngModel class = "font" type = "email" placeholder = "email address"  formControlName = "email">
                         <i class="fa-solid fa-envelope"></i>
                     </div>
                     <span class = "error font" *ngIf = "reactiveform.controls['email']?.errors?.['email']"> Please enter a valid email address.</span>
                     <br>
                     <div class="form-layout">
-                        <input class = "font" type = "password" placeholder = "new password" formControlName = "newPassword">
+                        <input class = "font" type = "password" placeholder = "new password" formControlName = "password">
                         <i class="fa-solid fa-lock"></i>
                     </div>
-                    <span class = "error font" *ngIf = "reactiveform.get('newPassword')?.errors?.['minlength']"> Must be longer than 6 characters.</span>
+                    <span class = "error font" *ngIf = "reactiveform.get('password')?.errors?.['minlength']"> Must be longer than 6 characters.</span>
                     <br>
                     <div class="form-layout">
                         <input class = "font" type = "password" placeholder = "confirm password" formControlName= "confirmPassword" >

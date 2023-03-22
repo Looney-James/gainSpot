@@ -1,3 +1,5 @@
+// Made by Dustin Mader
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GymDetailsComponent } from './gym-details.component';
