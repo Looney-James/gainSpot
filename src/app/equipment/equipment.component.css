@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+/*In case backbutton needs to be moved out of the signup container
+Match background color with body */
+
+/*#backbutton {
+    background: rgba(112, 127, 131, 0.382);
+    position: absolute;
+    left: 94%;
+    bottom: 6%;
+}*/
+
+.form-layout {
+    display:flex;
+    align-items: center;
+}
+
+.form-layout i {
+    padding-left: 8px;
+}
+
+.form-control {
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group select {
+    width: 37%;
+}
+
+#name {
+    width: 200px;
+  }
+
+#rectangle {
+    width: 40px;
+    height: 3px;
+    background: rgb(126, 220, 246);
+}
+
+.font {
+    font-family: 'Poppins', sans-serif;
+}
+
+input {
+    text-indent: 0px; /* Move the text 5 pixels to the right */
+    padding-right: 10px; /* Add 5 pixels of space to the left of the input box */
+  }
+
+label {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {  
+    justify-content: center;
+    align-items: center;
+    /*min-height: 100vh;*/
+    background: rgba(157, 208, 222, 0.382);
+    display: flex;
+}
+
+#formBox {
+    padding: 140px;
+    /*border-radius: 20px;*/
+    border: 20px solid #fff;
+    box-shadow: -15px -15px 45px rgba(255, 255, 255, 0.1), 15px 15px 45px rgba(0, 0, 0, 0.35);
+}
+
+#formBox h1 {
+    font-size: 40px;
+    letter-spacing: 0.1em;
+}
+
+#formBox input {
+    /*display: flex;*/
+    width: 300px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px 10px 32px;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: 5s;
+    /*flex-direction: column;*/
+}
+
+/* The modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
