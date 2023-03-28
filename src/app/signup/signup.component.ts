@@ -10,6 +10,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router'
 import { ActivatedRoute } from '@angular/router';
 import { EventEmitter } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { response } from 'express';
 
 @Component({
   selector: 'app-signup',
@@ -21,11 +24,18 @@ export class SignupComponent implements OnInit{
   signupUsers: any[] = [];
 
   reactiveform!: FormGroup;
-  constructor(private dialogRef : MatDialog, private formbuilder: FormBuilder, private httpClient: HttpClient, private router: Router, private activatedRoute: ActivatedRoute) { 
+  constructor(
+    private dialogRef : MatDialog, 
+    private formbuilder: FormBuilder, 
+    private httpClient: HttpClient, 
+    private router: Router, 
+    private activatedRoute: ActivatedRoute, 
+    private snackBar: MatSnackBar) 
+  { 
     this.reactiveform = this.formbuilder.group({
       userName: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
-      newPassword: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6), this.passwordValidator()])),
+      password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6), this.passwordValidator()])),
       confirmPassword: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6) , this.passwordValidator()]))
     })
   }
@@ -51,25 +61,44 @@ export class SignupComponent implements OnInit{
 
     const userName: string = this.reactiveform?.controls['userName']?.value;
     const email: string = this.reactiveform?.controls['email']?.value;
-    const password: string = this.reactiveform?.controls['confirmPassword']?.value;
+    const confirmPassword: string = this.reactiveform?.controls['confirmPassword']?.value;
     const signupUser = {
-      userName, email, password
+      userName, email, confirmPassword
     }
     
     this.signupUsers.push(signupUser);
     // Stores data locally in the application
     localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
     // Directly sends information to backend database.
-    // Store user information in firebase. Could try using "this.signupUsers" to match the values with login if needed.
-    this.httpClient.post("https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json", this.reactiveform.value)
+    this.httpClient.post('https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json', this.reactiveform.value).subscribe();
+    // Store user information and authenticates user in firebase.
+    this.httpClient.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebase.apiKey}`, 
+      { ...this.reactiveform.value, returnSecureToken: true}
+    )
     .subscribe(
       (response) => {
-          console.log(response);
+          console.log('response', response);
           this.reactiveform.reset();
-          (<any>this.router).navigate(['/../', 'login'], {relativeTo: this.activatedRoute});
+
+          this.snackBar.open("Account successfully created!", "Done",{
+            duration: 6000,
+            verticalPosition: "top",
+            horizontalPosition: "center",
+            panelClass: ['purple-snackbar']
+          })
+
+          // this.router.navigate(['/']);
+          this.router.navigate(['/../', 'login'], {relativeTo: this.activatedRoute});
         }, 
         (error) => {
-          console.log(error);
+          let authFailMessage = "Signup was unsuccessful. Please try again.    " + error.error.error.message;
+
+          this.snackBar.open(authFailMessage, "Done",{
+            duration: 6000,
+            verticalPosition: "top",
+            horizontalPosition: "center",
+            panelClass: ['purple-snackbar']
+          })
         }
       );
   }
@@ -77,7 +106,7 @@ export class SignupComponent implements OnInit{
   passwordValidator() : ValidatorFn {
     return (control: AbstractControl) : { [key: string]: any} | null =>
     {
-      const password1: string = this.reactiveform?.controls['newPassword']?.value;
+      const password1: string = this.reactiveform?.controls['password']?.value;
       const confirmPassword: string = this.reactiveform?.controls['confirmPassword']?.value;
       if(password1 !== confirmPassword){
         return { passwordmismatch : true }

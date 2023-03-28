@@ -18,18 +18,27 @@
             <form #loginForm = "ngForm" (ngSubmit)="onLogin(loginForm)">
                 <div id = "input">
                     <div class= "form-layout">
-                        <input ngModel class = "font" type = "username" placeholder = "username" name = "userName" required>
-                        <i class="fa-solid fa-user"></i>
+                        <!-- <input ngModel class = "font" type = "username" placeholder = "username" name = "userName" required> -->
+                        <input ngModel class = "font" type = "email" placeholder = "email" name = "email" required>
+                        <i class="fa-solid fa-envelope"></i>
                     </div>
                     <br>
                     <div class = "form-layout">
                         <input ngModel class = "font" type = "password" placeholder = "password" name = "password" required>
                         <i class="fa-solid fa-lock"></i>
                     </div>
+                    <!-- <div class= "form-layout">
+                        <a href = "/password-reset" class = "font"> Forgot your password? </a>
+                    </div> -->
                     <br>
                     <button mat-raised-button class = "font" type = "Submit" value = "Submit" [disabled] = "loginForm.invalid">
                         Submit
                     </button>
+                    <br>
+                    <br>
+                    <div class= "form-layout">
+                        <a href = "/password-reset" class = "font" class = "password-reset"> Forgot your password? </a>
+                    </div>
                     <!--<input class = "font" type = "Submit" value = "Submit">-->
                 </div>
             </form>

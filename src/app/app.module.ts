@@ -28,6 +28,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -41,6 +42,7 @@ export const firebaseConfig = {
   appId: "1:985128281237:web:0dde6ed3ef30b54685e79c",
   measurementId: "G-D3ZEYWJ1EZ"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -58,6 +60,7 @@ const analytics = getAnalytics(app);
     PageNotFoundComponent,
     EquipmentComponent,
     WorkoutFormComponent,
+    ResetPasswordComponent,
     ProfileComponent
   ],
   imports: [
