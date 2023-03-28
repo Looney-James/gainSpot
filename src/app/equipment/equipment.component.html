@@ -1,27 +1,65 @@
 <div class="container">
-  <h1>Report Equipment</h1>
+  <div id="formBox">
+    <h1 id="font">Report Equipment</h1>
+    <div id="rectangle"></div>
 
-  <form (ngSubmit)="submitReport()" #reportForm="ngForm">
+    <br>
 
-    <div class="form-group">
-      <label for="name">Equipment Name:</label>
-      <input type="text" class="form-control" id="name" name="name" required [(ngModel)]="selectedEquipment.name">
-    </div>
+    <form [formGroup]="reportForm" (ngSubmit)="submitReport()">
+      <div id="input">
+        <div class="form-group">
+          <label for="gym">Gym:</label>
+          <select class="form-control" id="gym" formControlName="gym">
+            <option value="" disabled selected>Select gym</option>
+            <option value="E.L. Wiegand Fitness Center" class="font ">EL Wiegand Fitness Center</option>
+            <option value="Anytime Fitness" class="font">Anytime Fitness</option>
+            <option value="South Reno Athletic Club" class="font">South Reno Athletic Club</option>
+            <option value="Double Edge Fitness - Midtown" class="font">Double Edge Fitness - Midtown</option>
+            <option value="American Iron Gym" class="font">American Iron Gym</option>
+          </select>
+          
+          <div *ngIf="reportForm.get('gym')?.invalid && reportForm.get('gym')?.touched">
+            <small class="text-danger">Gym is required.</small>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="status">Status:</label>
-      <select class="form-control" id="status" name="status" required [(ngModel)]="selectedEquipment.status">
-        <option value="working">Working</option>
-        <option value="broken">Broken</option>
-        <option value="needs maintenance">Needs Maintenance</option>
-      </select>
-    </div>
+        <div class="form-group">
+          <label for="name">Equipment Name:</label>
+          <br>
+          <input type="text" class="form-control, font" id="name" formControlName="name">
+          <div *ngIf="reportForm.get('name')?.invalid && reportForm.get('name')?.touched">
+            <small class="text-danger">Equipment name is required.</small>
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label for="comments">Additional Comments:</label>
-      <textarea class="form-control" id="comments" name="comments" [(ngModel)]="selectedEquipment.comments"></textarea>
-    </div>
-    
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select class="form-control" id="status" formControlName="status">
+            <option value="" disabled selected>Select status</option>
+            <option value="working" class="font ">Working</option>
+            <option value="broken" class="font">Broken</option>
+            <option value="needs maintenance" class="font">Needs Maintenance</option>
+          </select>
+          <div *ngIf="reportForm.get('status')?.invalid && reportForm.get('status')?.touched">
+            <small class="text-danger">Status is required.</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="comments">Additional Comments:</label>
+          <br>
+          <textarea class="form-control, font" id="comments" formControlName="comments" cols="40" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="font" [disabled]="!reportForm.valid">Submit</button>
+      </div>
+
+      <br>
+      <div id="success-message" class="alert alert-success" role="alert" *ngIf="showSuccessMessage">
+        Report submitted successfully!
+      </div>
+
+    </form>
+  </div>
 </div>
+
