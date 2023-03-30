@@ -32,8 +32,9 @@ const routes: Routes = [
   {path: 'equipment', component: EquipmentComponent},
   {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
   {path: 'password-reset', component: ResetPasswordComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '**', component: PageNotFoundComponent},
-  {path: 'profile', component: ProfileComponent}
+  
 ];
 
 @NgModule({
