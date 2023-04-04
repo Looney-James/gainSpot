@@ -9,7 +9,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./equipment.component.css']
 })
 export class EquipmentComponent {
-  @ViewChild('successModal') successModal: any; // add this line
+  @ViewChild('successModal') successModal: any;
 
   showSuccessMessage = false;
   reportForm: FormGroup;

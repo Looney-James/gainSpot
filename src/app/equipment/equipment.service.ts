@@ -9,5 +9,4 @@ export class EquipmentService {
 
   constructor(private db: AngularFireDatabase) { }
 
-
 }
