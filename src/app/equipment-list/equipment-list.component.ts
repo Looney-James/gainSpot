@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { FilterPipe } from './filter.pipe';
 
 export interface Report {
   id: string;
@@ -60,7 +59,6 @@ export class EquipmentListComponent {
     );
   }
   
-
   getBadgeColor(status: string) {
     switch (status) {
       case 'working':
