@@ -35,6 +35,26 @@
     font-family: 'Poppins', sans-serif;
 }
 
+.badge-success {
+    background-color: #28a745;
+    color: white;
+}
+  
+.badge-danger {
+    background-color: #dc3545;
+    color: white;
+}
+  
+.badge-warning {
+    background-color: #ffc107;
+    color: white;
+}
+  
+.badge-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
 label {
     font-family: 'Poppins', sans-serif;
 }
@@ -47,8 +67,27 @@ body {
     display: flex;
 }
 
+.table tbody {
+    height: 400px; /* set a fixed height for the table body */
+    overflow-y: scroll; /* add a vertical scrollbar if necessary */
+}
+
+tr {
+    border: 1px solid #ccc;
+  }
+
+th {
+    background-color: #f5f5f5;
+    color: black;
+}
+
+#dataTable {
+    border: 1px solid #ccc;
+}
+  
+  
 #formBox {
-    padding: 140px;
+    padding: 50px;
     /*border-radius: 20px;*/
     border: 20px solid #fff;
     box-shadow: -15px -15px 45px rgba(255, 255, 255, 0.1), 15px 15px 45px rgba(0, 0, 0, 0.35);

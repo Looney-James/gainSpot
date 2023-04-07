@@ -25,17 +25,19 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { EquipmentService } from './equipment/equipment.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ProfileComponent } from './profile/profile.component';
 
 
 
 // import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
 // import { environment } from 'src/environments/environment';
+import { EquipmentListComponent } from './equipment-list/equipment-list.component';
+import { FilterPipe } from './equipment-list/filter.pipe';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -67,7 +69,8 @@ const analytics = getAnalytics(app);
     WorkoutFormComponent,
     ResetPasswordComponent,
     ProfileComponent,
-
+    EquipmentListComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -83,6 +86,7 @@ const analytics = getAnalytics(app);
     MatButtonModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule
   ],

@@ -13,6 +13,7 @@ import { EventEmitter } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { response } from 'express';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-signup',

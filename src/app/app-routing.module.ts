@@ -18,6 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { EquipmentComponent } from './equipment/equipment.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EquipmentListComponent } from './equipment-list/equipment-list.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'secret', component: SecretComponent},
   {path: 'gymtraffic', component: GymTrafficComponent},
   {path: 'equipment', component: EquipmentComponent},
+  {path: 'equipment-list', component: EquipmentListComponent},
   {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
   {path: 'password-reset', component: ResetPasswordComponent},
   {path: 'profile', component: ProfileComponent},
@@ -45,4 +47,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent, EquipmentListComponent]
