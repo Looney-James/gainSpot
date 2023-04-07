@@ -31,7 +31,7 @@ import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ProfileComponent } from './profile/profile.component';
-import { AuthenticatorComponent } from './authenticator/authenticator.component';
+
 
 
 // import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
@@ -67,7 +67,7 @@ const analytics = getAnalytics(app);
     WorkoutFormComponent,
     ResetPasswordComponent,
     ProfileComponent,
-    AuthenticatorComponent
+
   ],
   imports: [
     BrowserModule,
