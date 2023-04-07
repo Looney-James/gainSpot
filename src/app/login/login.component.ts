@@ -12,6 +12,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from 'src/environments/environment';
 import { coerceStringArray } from '@angular/cdk/coercion';
 
+// import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore' 
+// import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth'
+
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -21,11 +24,18 @@ import { coerceStringArray } from '@angular/cdk/coercion';
 
 export class LoginComponent implements OnInit {
 
+  // firestore: FirebaseTSFirestore;
+  // auth: FirebaseTSAuth;
+
   constructor(
     private dialogRef : MatDialog, 
     private httpClient: HttpClient, 
     private router: Router,
-    private snackBar: MatSnackBar) {}
+    private snackBar: MatSnackBar) {
+
+    // this.firestore = new FirebaseTSFirestore;
+    // this.auth = new FirebaseTSAuth;
+    }
 
   ngOnInit(): void {
   }

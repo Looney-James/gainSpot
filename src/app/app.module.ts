@@ -31,6 +31,11 @@ import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthenticatorComponent } from './authenticator/authenticator.component';
+
+
+// import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
+// import { environment } from 'src/environments/environment';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -61,7 +66,8 @@ const analytics = getAnalytics(app);
     EquipmentComponent,
     WorkoutFormComponent,
     ResetPasswordComponent,
-    ProfileComponent
+    ProfileComponent,
+    AuthenticatorComponent
   ],
   imports: [
     BrowserModule,
@@ -83,4 +89,8 @@ const analytics = getAnalytics(app);
   providers: [SignupComponent, EquipmentService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  // constructor(){
+  //   FirebaseTSApp.init(environment.firebaseConfig);
+  // }
+ }
