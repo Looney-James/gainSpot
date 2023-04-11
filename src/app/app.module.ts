@@ -38,6 +38,7 @@ import { ProfileComponent } from './profile/profile.component';
 // import { environment } from 'src/environments/environment';
 import { EquipmentListComponent } from './equipment-list/equipment-list.component';
 import { FilterPipe } from './equipment-list/filter.pipe';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -70,7 +71,8 @@ const analytics = getAnalytics(app);
     ResetPasswordComponent,
     ProfileComponent,
     EquipmentListComponent,
-    FilterPipe
+    FilterPipe,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
