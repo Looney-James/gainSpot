@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Observable } from 'rxjs';
+import { QueryFn } from '@angular/fire/compat/firestore';
+import { Observable, combineLatest, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Report {
@@ -20,42 +21,75 @@ export interface Report {
 
 export class EquipmentListComponent {
   selectedGym!: string;
-  gyms = [  'E.L. Wiegand Fitness Center',    
-            'Anytime Fitness',    
-            'South Reno Athletic Club',    
-            'Double Edge Fitness - Midtown',    
-            'American Iron Gym',  ];
+  gyms = [  
+    'E.L. Wiegand Fitness Center',    
+    'Anytime Fitness',    
+    'South Reno Athletic Club',    
+    'Double Edge Fitness - Midtown',    
+    'American Iron Gym',  
+  ];
+
   reports$!: Observable<any[]>;
   searchTerm!: string;
+  selectedDate!: string;
+  selectedStatus!: string;
+  reportLimit = 1000;
 
   constructor(private db: AngularFireDatabase) {}
 
   ngOnInit() {
     this.selectedGym = this.gyms[0];
+    this.selectedDate = '';
+    this.selectedStatus = '';
     this.updateReports();
   }
 
   updateReports() {
-    this.reports$ = this.db
-      .list(`${this.selectedGym.replace(/\./g, '-')}/reports`)
-      .snapshotChanges()
-      .pipe(
-        map((changes) =>
-          changes.map((c) => ({
-            key: c.payload.key,
-            ...c.payload.val() as object,
-          }))
-        )
-      );
-  }
+    let queryFn: any = null;
 
+    if (this.selectedDate === 'asc') {
+      queryFn = (ref: any) => ref.orderByChild('date');
+    } else if (this.selectedDate === 'desc') {
+      queryFn = (ref: any) => ref.orderByChild('date').limitToLast(this.reportLimit);
+    }
+
+    const reportsRef = this.db.list<Report>(`${this.selectedGym.replace(/\./g, '-')}/reports`, queryFn);
+
+    this.reports$ = reportsRef.snapshotChanges().pipe(
+      map((changes: any[]) =>
+        changes.map((c: any) => ({
+          key: c.payload.key,
+          ...(c.payload.val() as Report)
+        })).reverse()
+      )
+    );
+  }
+  
   onChangeGym() {
     this.updateReports();
   }
 
+  onChangeDate() {
+    this.updateReports();
+  }
+
+  onChangeStatus(selectedStatus: string) {
+    if (selectedStatus !== this.selectedStatus) {
+      this.selectedStatus = status;
+      this.updateReports();
+    }
+  }
+  
   get filteredReports$(): Observable<Report[]> {
-    return this.reports$.pipe(
-      map(reports => reports.filter(report => report.equipment.toLowerCase().includes(this.searchTerm.toLowerCase())))
+    return combineLatest([this.reports$, of(this.selectedStatus), of(this.searchTerm)]).pipe(
+      map(([reports, status, searchTerm]) => {
+        return reports.filter(report => {
+          return (
+            report.equipment.toLowerCase().includes(searchTerm.toLowerCase()) &&
+            (!status || report.status === status)
+          );
+        });
+      })
     );
   }
   
@@ -72,6 +106,3 @@ export class EquipmentListComponent {
     }
   }
 }
-
-
-

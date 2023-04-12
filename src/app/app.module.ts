@@ -60,7 +60,7 @@ const analytics = getAnalytics(app);
     EquipmentComponent,
     WorkoutFormComponent,
     EquipmentListComponent,
-    FilterPipe
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
