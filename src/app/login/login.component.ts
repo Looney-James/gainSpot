@@ -1,4 +1,5 @@
 // Made By Dustin Mader
+// Very small edits done by James
 
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
@@ -68,7 +69,7 @@ export class LoginComponent implements OnInit {
 
           localStorage.setItem("user", loginForm.value["email"])
           console.log(localStorage.getItem("user"))
-          this.router.navigate(['/']);
+          this.router.navigate(['dashboard']);
 
           // firebase.database()
         }, 
