@@ -13,6 +13,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 const MaterialComponents = [
   MatButtonModule,
@@ -27,6 +28,7 @@ const MaterialComponents = [
   MatFormFieldModule,
   MatCheckboxModule,
   MatInputModule,
+  MatIconModule,
 ]
 
 @NgModule({

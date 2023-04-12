@@ -1,0 +1,35 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    font-size: 0.88rem;
+    background: White;
+    user-select: none;
+    overflow-x: hidden;
+}
+
+.container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8 rem;
+    grid-template-columns: 14rem auto 23rem;
+}
+
+
+aside{
+    height: 100vh;
+    background: turquoise;
+}
+
+/* aside .top{
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+}
+
+aside.logo img{
+    width: 2rem;
+    height: 2rem;
+} */
