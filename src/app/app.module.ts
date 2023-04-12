@@ -72,7 +72,7 @@ const analytics = getAnalytics(app);
     ProfileComponent,
     EquipmentListComponent,
     FilterPipe,
-    DashboardComponent
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,

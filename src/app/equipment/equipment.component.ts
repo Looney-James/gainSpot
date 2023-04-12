@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-equipment',
@@ -9,12 +10,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./equipment.component.css']
 })
 export class EquipmentComponent {
-  @ViewChild('successModal') successModal: any;
-
-  showSuccessMessage = false;
   reportForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private db: AngularFireDatabase, public modalService: NgbModal) {
+  constructor(private formBuilder: FormBuilder, private db: AngularFireDatabase, public modalService: NgbModal, public snackbar: MatSnackBar) {
     this.reportForm = this.formBuilder.group({
       gym: ['', Validators.required],
       name: ['', Validators.required],
@@ -37,8 +35,11 @@ export class EquipmentComponent {
           .then(() => {
             console.log('Report submitted successfully');
             this.reportForm.reset();
-            this.showSuccessMessage = true; // Set the flag to true
-            setTimeout(() => this.showSuccessMessage = false, 5000); // Hide the message after 5 seconds
+            const config = new MatSnackBarConfig();
+            config.verticalPosition = 'top';
+            config.panelClass = ['snackbar-color'];
+            config.duration = 5000;
+            this.snackbar.open('Report Submitted Successfully!', 'Close', config);
           })
           .catch((error) => {
             console.log('Error submitting report: ', error);
