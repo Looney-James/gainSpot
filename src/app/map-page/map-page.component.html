@@ -1,7 +1,17 @@
 <!--Map page where we ulitize Google API-->
 <!--Curretnly we have a placeholder image right now-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA"></script>
+<div>
+  <mat-toolbar style = "background-color: turquoise; color: white" class = "navbar">
+    
+    <div>
+      <button mat-raised-button>
+        <a style = "color: turquoise" href = "/dashboard"> Return </a>
+      </button>
 
+    </div>
+  </mat-toolbar>
+</div>
 
 <div id="map" style="height: 100%; width: 100%;">
     <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">

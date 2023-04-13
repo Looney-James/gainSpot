@@ -1,14 +1,20 @@
 <!-- Created by James -->
 <!--Workout page where there will be work outs listed and generated based on what the user wants-->'
 
+<div>
+  <mat-toolbar style = "background-color: turquoise; color: white">
+    
+    <div>
+      <button mat-raised-button>
+        <a style = "color: turquoise" href = "/dashboard"> Return </a>
+      </button>
+    </div>
+  </mat-toolbar>
+</div>
 
 <body class = "tabs">
 <div>
-  <mat-tab-group mat-stretch-tabs ="false" mat-alight-tabs = "start">
-    <mat-tab label="Current Workouts">
-      <br>
-      <br>
-      <br>
+  
       
       <div>
         <button mat-raised-button (click) = "openDialog()" style="margin-left: 20px; margin-top: 20px;">
@@ -21,25 +27,13 @@
       <ul>
         <li *ngFor = "let workout of workouts">
           <mat-checkbox [(ngModel)]="workout.selected"></mat-checkbox>
-          <strong>{{ workout.name }}</strong> Sets: {{ workout.sets}} Reps: {{ workout.reps}}
+          <strong>    {{ workout.name }}</strong> Sets: {{ workout.sets}} Reps: {{ workout.reps}}
         </li>
       </ul>
-      <button mat-raised-button color = "primary" (click) = "deleteWorkoutsSelected()">Delete</button>
+    
 
     </div>
 
-    </mat-tab>
-    <mat-tab label="Previous Workouts">
-      <div>
-        <ul>
-          <li *ngFor = "let workout of workouts | async">
-            <strong>{{ workout.name }}</strong>: {{ workout.sets}} : {{ workout.reps}}
-          </li>
-        </ul>
-      </div>
-    </mat-tab>
-  
-  </mat-tab-group>
 </div>
 </body>
 
