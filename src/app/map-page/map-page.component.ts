@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { AgmCoreModule } from '@agm/core';
 
 @Component({
   selector: 'app-map-page',
@@ -20,8 +21,10 @@ export class MapPageComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+    window.addEventListener('load', () => this.initMap());
     this.initMap();
   }
+
 
   initMap() {
     const mapElement = document.getElementById('map');
@@ -33,6 +36,8 @@ export class MapPageComponent implements OnInit {
     };
   
     const map = new google.maps.Map(mapElement, options);
+
+  
   
     // Add markers for gyms
     const gyms = [
@@ -138,6 +143,9 @@ export class MapPageComponent implements OnInit {
         });
     
       });
+      
     }
+
+    
   }
 }
