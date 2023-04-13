@@ -52,5 +52,15 @@ color: white;
     height: 100%;
   }
 
+  .bgimg{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.5)), url('/../assets/images/gym1.jpg');
+  
+  
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    height: 100%;
+  }
 
   
