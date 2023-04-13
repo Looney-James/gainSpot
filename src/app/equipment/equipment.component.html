@@ -52,7 +52,8 @@
           <textarea class="form-control, font" id="comments" formControlName="comments" cols="40" rows="3"></textarea>
         </div>
 
-        <button type="submit" class="font" [disabled]="!reportForm.valid">Submit</button>
+        <div>
+        <button mat-raised-button type="submit" class="font" [disabled]="!reportForm.valid">Submit</button>      </div>
       </div>
 
       <br>
