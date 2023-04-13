@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { HttpBackend } from '@angular/common/http';
+import { AgmCoreModule } from '@agm/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,6 +30,7 @@ import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { EquipmentListComponent } from './equipment-list/equipment-list.component';
 import { FilterPipe } from './equipment-list/filter.pipe';
+import { MapPageComponent } from './map-page/map-page.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -61,6 +61,7 @@ const analytics = getAnalytics(app);
     WorkoutFormComponent,
     EquipmentListComponent,
     FilterPipe,
+    MapPageComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +78,10 @@ const analytics = getAnalytics(app);
     ReactiveFormsModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA',
+    })
   ],
   providers: [SignupComponent, EquipmentService],
   bootstrap: [AppComponent]
