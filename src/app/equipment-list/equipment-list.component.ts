@@ -1,5 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
 import { QueryFn } from '@angular/fire/compat/firestore';
 import { Observable, combineLatest, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -35,7 +36,7 @@ export class EquipmentListComponent {
   selectedStatus!: string;
   reportLimit = 1000;
 
-  constructor(private db: AngularFireDatabase) {}
+  constructor(private db: AngularFireDatabase, private storage: AngularFireStorage) {}
 
   ngOnInit() {
     this.selectedGym = this.gyms[0];
@@ -105,4 +106,20 @@ export class EquipmentListComponent {
         return 'badge-secondary';
     }
   }
+
+  openFileWindow(event: MouseEvent) {
+    const url = (event.currentTarget as HTMLAnchorElement).getAttribute('href');
+    if (url) {
+      const width = 600;
+      const height = 800;
+      const left = screen.width / 2 - width / 2;
+      const top = screen.height / 2 - height / 2;
+      const fileWindow = window.open(url, '_blank', `width=${width},height=${height},left=${left},top=${top},toolbar=0,location=0,menubar=0`);
+      if (fileWindow) {
+        setTimeout(() => {
+          fileWindow.close();
+        }, 10000);
+      }
+    }
+  }  
 }
