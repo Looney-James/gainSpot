@@ -141,11 +141,7 @@ export class MapPageComponent implements OnInit {
             scaledSize: new google.maps.Size(40, 40)
           }
         });
-    
       });
-      
     }
-
-    
   }
 }

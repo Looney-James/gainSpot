@@ -67,6 +67,7 @@
               <th>Status</th>
               <th>Comments</th>
               <th>Date</th>
+              <th>File</th>
             </tr>
           </thead>
       
@@ -77,6 +78,10 @@
                 <td><span class="badge {{ getBadgeColor(report.status) }}">{{ report.status }}</span></td>
                 <td>{{ report.comments }}</td>
                 <td>{{ report.date | date:'medium' }}</td>
+                <td>
+                  <a *ngIf="report.fileUrl" href="{{ report.fileUrl }}" target="_blank" (click)="openFileWindow($event)">View File</a>
+                  <span *ngIf="!report.fileUrl">No File</span>
+                </td>
               </tr>
             </ng-container>
           </tbody>          
