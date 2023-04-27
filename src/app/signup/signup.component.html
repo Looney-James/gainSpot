@@ -15,11 +15,14 @@
             <!-- <form signupUsers (ngSubmit) = "onSignup()"> -->
             <form [formGroup] = "reactiveform">
                 <div id = "input">
-                    <div class="form-layout">
+
+                    <!--Username not needed anymore-->
+                    <!-- <div class="form-layout">
                         <input class = "font" type = "text" placeholder = "username" formControlName = "userName">
                         <i class="fa-solid fa-user"></i>
                     </div>
-                    <span class = "error font" *ngIf = "reactiveform.get('userName')?.errors?.['minlength'] || reactiveform.get('userName')?.errors?.['maxlength']"> Must be longer than 4~30 characters.</span>
+                    <span class = "error font" *ngIf = "reactiveform.get('userName')?.errors?.['minlength'] || reactiveform.get('userName')?.errors?.['maxlength']"> Must be longer than 4~30 characters.</span> -->
+                    
                     <br>
                     <div class="form-layout">
                         <input ngModel class = "font" type = "email" placeholder = "email address"  formControlName = "email">

@@ -40,6 +40,7 @@ import { EquipmentListComponent } from './equipment-list/equipment-list.componen
 import { FilterPipe } from './equipment-list/filter.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapPageComponent } from './map-page/map-page.component';
+import { CreateWorkoutComponent } from './create-workout/create-workout.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -74,8 +75,10 @@ const analytics = getAnalytics(app);
     EquipmentListComponent,
     FilterPipe,
     DashboardComponent,
-    MapPageComponent
+    MapPageComponent,
+    CreateWorkoutComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,

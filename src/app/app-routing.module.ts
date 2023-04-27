@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MapPageComponent } from './map-page/map-page.component';
 import { WeeklyScheduleComponent } from './weekly-schedule/weekly-schedule.component';
-import { WorkoutListComponent } from './workout-list/workout-list.component';
+import { CreateWorkoutComponent } from './create-workout/create-workout.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { SecretComponent } from './secret/secret.component';
@@ -27,7 +27,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'map', component: MapPageComponent},
   {path: 'weekly-schedule', component: WeeklyScheduleComponent},
-  {path: 'workouts', component: WorkoutListComponent},
+  {path: 'createworkout', component: CreateWorkoutComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'secret', component: SecretComponent},
   {path: 'gymtraffic', component: GymTrafficComponent},
@@ -49,4 +49,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent, EquipmentListComponent, DashboardComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, CreateWorkoutComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent, EquipmentListComponent, DashboardComponent]

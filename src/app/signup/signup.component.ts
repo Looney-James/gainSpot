@@ -15,6 +15,10 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { response } from 'express';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
+/**New addition, switching from Real time to Firestore */
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
@@ -31,10 +35,10 @@ export class SignupComponent implements OnInit{
     private httpClient: HttpClient, 
     private router: Router, 
     private activatedRoute: ActivatedRoute, 
-    private snackBar: MatSnackBar) 
+    private snackBar: MatSnackBar,
+    private firestore: AngularFirestore) 
   { 
     this.reactiveform = this.formbuilder.group({
-      userName: new FormControl('', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(30)])),
       email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
       password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6), this.passwordValidator()])),
       confirmPassword: new FormControl('', Validators.compose([Validators.required, Validators.minLength(6) , this.passwordValidator()]))
@@ -46,9 +50,9 @@ export class SignupComponent implements OnInit{
     if(localData != null) {
       this.signupUsers = JSON.parse(localData);
     }
-    this.reactiveform.valueChanges.subscribe(val =>{
-      console.log(this.reactiveform.controls["userName"].value);
-    }) 
+    // this.reactiveform.valueChanges.subscribe(val =>{
+    //   console.log(this.reactiveform.controls["userName"].value);
+    // }) 
   }
 
   signupUser(event: Event) {
@@ -60,18 +64,20 @@ export class SignupComponent implements OnInit{
     // Test it is working
     console.log(this.reactiveform.value);
 
-    const userName: string = this.reactiveform?.controls['userName']?.value;
     const email: string = this.reactiveform?.controls['email']?.value;
     const confirmPassword: string = this.reactiveform?.controls['confirmPassword']?.value;
     const signupUser = {
-      userName, email, confirmPassword
+      email, confirmPassword
     }
     
     this.signupUsers.push(signupUser);
     // Stores data locally in the application
     localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
     // Directly sends information to backend database.
-    this.httpClient.post('https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json', this.reactiveform.value).subscribe();
+    // this.httpClient.post('https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json', this.reactiveform.value).subscribe();
+
+    //Changes this to firestore so that it can store images
+    this.firestore.collection('users').add(this.reactiveform.value);
     // Store user information and authenticates user in firebase.
     this.httpClient.post(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${environment.firebase.apiKey}`, 
       { ...this.reactiveform.value, returnSecureToken: true}

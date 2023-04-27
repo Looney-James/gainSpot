@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkoutListComponent } from './workout-list.component';
+import { CreateWorkoutComponent } from './create-workout.component';
 
-describe('WorkoutListComponent', () => {
-  let component: WorkoutListComponent;
-  let fixture: ComponentFixture<WorkoutListComponent>;
+describe('CreateWorkoutComponent', () => {
+  let component: CreateWorkoutComponent;
+  let fixture: ComponentFixture<CreateWorkoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkoutListComponent ]
+      declarations: [ CreateWorkoutComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WorkoutListComponent);
+    fixture = TestBed.createComponent(CreateWorkoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('WorkoutListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

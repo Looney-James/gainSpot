@@ -10,7 +10,7 @@
             <h1>Welcome!</h1>
             <li>
     
-                <a href="/workouts">
+                <a href="/createworkout">
                     <span class = "material-icons-sharp">fitness_center</span>
                     Workouts
                 </a>
@@ -39,10 +39,10 @@
             </li>
             <li>
                 
-                <a href="/">
+                <button mat-raised-button ="isLoggedIn" (click) = "logout()">
                     <span class = "material-icons-sharp">logout</span>
                     Logout
-                </a>
+                </button>
             </li>
         </ul>
       </nav>
