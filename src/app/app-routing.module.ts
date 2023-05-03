@@ -20,22 +20,23 @@ import { EquipmentComponent } from './equipment/equipment.component';
 
 import { EquipmentListComponent } from './equipment-list/equipment-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'map', component: MapPageComponent},
-  {path: 'weekly-schedule', component: WeeklyScheduleComponent},
-  {path: 'createworkout', component: CreateWorkoutComponent},
+  {path: 'map', component: MapPageComponent, canActivate: [AuthGuard]},
+  {path: 'weekly-schedule', component: WeeklyScheduleComponent, canActivate: [AuthGuard]},
+  {path: 'createworkout', component: CreateWorkoutComponent, canActivate: [AuthGuard]},
   {path: 'signup', component: SignupComponent},
-  {path: 'secret', component: SecretComponent},
-  {path: 'gymtraffic', component: GymTrafficComponent},
-  {path: 'equipment', component: EquipmentComponent},
-  {path: 'equipment-list', component: EquipmentListComponent},
-  {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
+  {path: 'secret', component: SecretComponent, canActivate: [AuthGuard]},
+  {path: 'gymtraffic', component: GymTrafficComponent, canActivate: [AuthGuard]},
+  {path: 'equipment', component: EquipmentComponent, canActivate: [AuthGuard]},
+  {path: 'equipment-list', component: EquipmentListComponent, canActivate: [AuthGuard]},
+  {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule), canActivate: [AuthGuard]},
   {path: 'password-reset', component: ResetPasswordComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent},
   
 ];
