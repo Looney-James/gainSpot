@@ -1,43 +1,86 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Observable } from 'rxjs';
 import { response } from 'express';
+// import { ChartDataSets, ChartOptions, ChartType } from 'chart.js';
+// import { Label } from 'ng2-charts';
+
+import * as Chart from 'chart.js/auto';
 
 @Component({
   selector: 'app-best-time',
-  template: `
-  <h2>Foot Traffic Data</h2>
-    <ng-container *ngIf="predictions.length; else noData">
-      <table>
-        <thead>
-          <tr>
-            <th>Day of Week</th>
-            <th>Hour of Day</th>
-            <th>Peak Likelihood</th>
-            <th>Estimated Wait Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let prediction of predictions">
-            <td>{{ prediction.dayOfWeek }}</td>
-            <td>{{ prediction.hourOfDay }}</td>
-            <td>{{ prediction.peakLikelihood }}</td>
-            <td>{{ prediction.estimatedWaitTime }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </ng-container>
-    <ng-template #noData>
-      <p>No foot traffic data available.</p>
-    </ng-template>
-  `,
+  templateUrl: './best-time.component.html',
+  styleUrls: ['./best-time.component.css'],
     
 })
 export class BestTimeComponent implements OnInit {
+  // footTraffic: any;
 
-  predictions: any[] = [];
-  responseData: any;
+  // chartData: ChartDataSets[] = [];
+  // chartLabels: Label[] = [];
+  // chartOptions: ChartOptions = {};
+  // chartType: ChartType = '';
 
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    
+  }
+
+  // ngOnInit(): void {
+  //   this.apiService.getChartData().subscribe(data => {
+  //     console.log(data);
+
+  //     const chartData: ChartDataSets[] = [
+  //       {
+  //         data: data.analysis.hour_analysis.map(hour => hour.score),
+  //         label: 'Score'
+  //       }
+  //     ];
+
+  //     const chartLabels: Label[] = data.analysis.hour_analysis.map(hour => hour.hour);
+
+  //     const chartOptions: ChartOptions = {
+  //       responsive: true,
+  //       scales: {
+  //         yAxes: [{
+  //           ticks: {
+  //             beginAtZero: true
+  //           }
+  //         }]
+  //       }
+  //     };
+
+  //     const chartType: ChartType = 'bar';
+
+  //     this.chartData = chartData;
+  //     this.chartLabels = chartLabels;
+  //     this.chartOptions = chartOptions;
+  //     this.chartType = chartType;
+  //   });
+  // }
+
+
+  
+  
+  
+  
+  
+  // ngOnInit() {
+  //   this.apiService.getFootTrafficData().subscribe((data) => {
+  //     this.footTraffic = data;
+  //   });
+  // }
+
+  // @ViewChild('chart', {static: true })
+  // private chartRef: ElementRef;
+
+  // predictions: any[];
+  // footTrafficData: {hour: number, footTraffic: number }[];
+
+  // responseData: any;
+
+  // constructor(private apiService: ApiService) { }
 
   // getData(): void {
   //   this.apiService.getData().subscribe(response => {
@@ -52,14 +95,47 @@ export class BestTimeComponent implements OnInit {
   //   });
   // }
 
-  ngOnInit() {
-    const date = new Date("May 05, 2023 08:00:00");
-    const duration = 60;
-    const location = '1664 N Virginia St, Reno, NV 89557';
-    this.apiService.getBestTimes(date, duration, location)
-      .subscribe(response => {
-        this.predictions = response.analysis.prediction;
-      });
-  }
+  // ngOnInit() {
+  //   const date = new Date();
+  //   const duration = 24 * 60;
+  //   const location = '1664 N Virginia St, Reno, NV 89557';
+    
+  //   this.apiService.getBestTimes(date, duration, location)
+  //     .subscribe(footTrafficData => {
+  //       console.log(response);
+  //       this.footTrafficData = footTrafficData;
+  //       this.createChart();
+  //     });
+  // }
+
+  // private createChart(){
+  //   const ctx = this.chartRef.nativeElement.getContext('2d');
+  //   const data = {
+  //     labels: this.footTrafficData.map(data => data.hour),
+  //     datasets: [
+  //       {
+  //         label: 'Foot Traffic',
+  //         backgroundColor: 'rgba(o, 0, 255, 0.5)',
+  //         borderColor: 'rgba(0, 0, 255, 1)',
+  //         borderWidth: 1,
+  //         data: this.footTrafficData.map(data => data.footTraffic),
+  //       },
+  //     ],
+  //   };
+  //   const options = {
+  //     scales: {
+  //       yAxes: [{
+  //         ticks: {
+  //           beginAtZero: true,
+  //         },
+  //       }],
+  //     },
+  //   };
+  //   new Chart(ctx, {
+  //     type: 'bar',
+  //     data: data,
+  //     options: options,
+  //   });
+  // }
 
 }
