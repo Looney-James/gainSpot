@@ -30,6 +30,7 @@ import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { ProfileComponent } from './profile/profile.component';
+import { getStorage, provideStorage } from '@angular/fire/storage';
 
 
 
@@ -40,6 +41,7 @@ import { EquipmentListComponent } from './equipment-list/equipment-list.componen
 import { FilterPipe } from './equipment-list/filter.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapPageComponent } from './map-page/map-page.component';
+import { BestTimeComponent } from './best-time/best-time.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -74,7 +76,7 @@ const analytics = getAnalytics(app);
     EquipmentListComponent,
     FilterPipe,
     DashboardComponent,
-    MapPageComponent
+    MapPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,7 @@ const analytics = getAnalytics(app);
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    provideStorage(() => getStorage()),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA',
     })

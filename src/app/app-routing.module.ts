@@ -20,6 +20,7 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EquipmentListComponent } from './equipment-list/equipment-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BestTimeComponent } from './best-time/best-time.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -37,7 +38,9 @@ const routes: Routes = [
   {path: 'password-reset', component: ResetPasswordComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'dashboard', component: DashboardComponent},
+  {path: 'best-time', component: BestTimeComponent},
   {path: '**', component: PageNotFoundComponent},
+  
   
 ];
 
@@ -49,4 +52,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent, EquipmentListComponent, DashboardComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent, EquipmentListComponent, DashboardComponent, BestTimeComponent]
