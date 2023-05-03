@@ -5,7 +5,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MatDialogModule } from '@angular/material/dialog';
 import { getAuth } from 'firebase/auth'
 import { Router } from '@angular/router';
-
+import { AuthService } from '../services/auth.service';
+import { User } from '../models/user';
+import {Observable} from 'rxjs'
+import { of } from 'rxjs';
 
 
 @Component({
@@ -15,16 +18,31 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private angularFireAuth: AngularFireAuth, private router: Router) {}
+  user$: Observable<string | null> = of(null);
 
-  isLoggedIn: boolean =  false;
+  isLoggedIn: boolean =  true;
+
+  constructor(private auth: AngularFireAuth, private router: Router) {
+  }
+
+
+  
 
   ngOnInit(): void {
+    try {
+      const userString = localStorage.getItem('user');
+    const user = userString ? JSON.parse(userString) : null;
+    if (user) {
+      this.user$ = of(user);
+    }
+  } catch (error) {
+    console.error(error);
+  }
   }
 
   
   logout() {
-    this.angularFireAuth.signOut().then(() => {
+    this.auth.signOut().then(() => {
      
       window.alert('Logged Out!')
       this.isLoggedIn = false;
@@ -32,6 +50,7 @@ export class DashboardComponent implements OnInit {
       window.location.href = '/'
     })
   }
+
 
 
   ngOnDestroy(): void {
