@@ -4,6 +4,7 @@ import { GoalFormComponent } from '../goal-form/goal-form.component';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface Goal {
   goalName: string;
@@ -11,6 +12,8 @@ export interface Goal {
   comments: string;
   deadline: string;
   userId: string;
+  completed: boolean;
+  id?: string;
 }
 
 @Component({
@@ -20,15 +23,17 @@ export interface Goal {
 })
 export class GoalsComponent implements OnInit {
   goalsCollection!: AngularFirestoreCollection<Goal>;
+  completedGoalsCollection!: AngularFirestoreCollection<Goal>;
   goals!: Observable<Goal[]>;
   uid!: string;
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private auth: AngularFireAuth, private snackBar: MatSnackBar) {
     this.auth.user.subscribe(user => {
       
       if (user){
         this.uid = user.uid ?? '';
         this.goalsCollection = this.firestore.collection<Goal>('goals', ref => ref.where('userId', '==', this.uid));
+        this.completedGoalsCollection = this.firestore.collection<Goal>('completedGoals');
         this.goals = this.goalsCollection.valueChanges({idField: 'id'});
       }
     });
@@ -69,6 +74,18 @@ export class GoalsComponent implements OnInit {
         return 'badge-warning';
       default:
         return 'badge-secondary';
+    }
+  }
+
+  onComplete(goal: Goal) {
+    if (goal.completed) {
+      this.goalsCollection.doc(goal.id).delete();
+      this.completedGoalsCollection.add(goal);
+      this.snackBar.open('Workout completed!', 'Close',{
+        duration: 5000,
+        verticalPosition: 'top',
+        panelClass: 'snackbar-success'
+      })
     }
   }
 
