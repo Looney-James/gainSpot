@@ -3,17 +3,21 @@
     <aside class="sidebar">
       <nav class="nav">
         <ul>
-            <li>
-                <span class = "material-icons-sharp">person</span>
-                <a href="/profile">Profile</a>
-            </li>
+
             <h1>Welcome!</h1>
-            <h2>
-                Email
-            </h2>
+            <h4>{{ user$ | async}}</h4>
+
+            <li>
+                
+                <a href="/goals">
+                    <span class = "material-icons-sharp">verified</span>
+                    Goals
+                </a>
+            </li>
+
             <li>
     
-                <a href="/workouts">
+                <a href="/createworkout">
                     <span class = "material-icons-sharp">fitness_center</span>
                     Workouts
                 </a>
@@ -26,6 +30,8 @@
 
                 </a>
             </li>
+
+
             <li>
     
                 <a href="/equipment-list">
@@ -42,16 +48,10 @@
             </li>
             <li>
                 
-                <a href="/">
+                <button mat-raised-button ="isLoggedIn" (click) = "logout()">
                     <span class = "material-icons-sharp">logout</span>
                     Logout
-                </a>
-            </li>
-            <li>
-                
-                <a href="/goals">
-                    Goals
-                </a>
+                </button>
             </li>
         </ul>
       </nav>

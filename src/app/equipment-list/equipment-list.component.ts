@@ -12,6 +12,7 @@ export interface Report {
   status: string;
   comments: string;
   date: Date;
+  user: string;
 }
 
 @Component({
@@ -118,7 +119,7 @@ export class EquipmentListComponent {
       if (fileWindow) {
         setTimeout(() => {
           fileWindow.close();
-        }, 10000);
+        }, 5000);
       }
     }
   }  

@@ -1,3 +1,11 @@
 #map-container {
     height: 500px;
   }
+
+.gm-style-iw a:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+  }
+  

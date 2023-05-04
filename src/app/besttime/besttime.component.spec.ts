@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WorkoutListComponent } from './workout-list.component';
+import { BesttimeComponent } from './besttime.component';
 
-describe('WorkoutListComponent', () => {
-  let component: WorkoutListComponent;
-  let fixture: ComponentFixture<WorkoutListComponent>;
+describe('BesttimeComponent', () => {
+  let component: BesttimeComponent;
+  let fixture: ComponentFixture<BesttimeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WorkoutListComponent ]
+      declarations: [ BesttimeComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(WorkoutListComponent);
+    fixture = TestBed.createComponent(BesttimeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -20,5 +20,4 @@ describe('WorkoutListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  
 });

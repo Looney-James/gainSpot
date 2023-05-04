@@ -66,10 +66,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gainSpot:build:production"
+              "browserTarget": "gainSpot:build:production",
+              "proxyConfig": "proxyconfig.json"
             },
             "development": {
-              "browserTarget": "gainSpot:build:development"
+              "browserTarget": "gainSpot:build:development",
+              "proxyConfig": "proxyconfig.json"
             }
           },
           "defaultConfiguration": "development"
@@ -96,7 +98,9 @@
               "src/styles.css",
               "src/custom-snackbar.css"
             ],
-            "scripts": []
+            "scripts": [
+              
+            ]
           }
         }
       }

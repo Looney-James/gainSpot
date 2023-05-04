@@ -25,13 +25,13 @@ import { EquipmentService } from './equipment/equipment.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ProfileComponent } from './profile/profile.component';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AuthGuard } from './auth.guard';
 
 
 
@@ -44,6 +44,11 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { BestTimeComponent } from './best-time/best-time.component';
 import { GoalsComponent } from './goals/goals.component';
 import { GoalFormComponent } from './goal-form/goal-form.component';
+import { CreateWorkoutComponent } from './create-workout/create-workout.component';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import { BesttimeComponent } from './besttime/besttime.component';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -74,14 +79,16 @@ const analytics = getAnalytics(app);
     EquipmentComponent,
     WorkoutFormComponent,
     ResetPasswordComponent,
-    ProfileComponent,
     EquipmentListComponent,
     FilterPipe,
     DashboardComponent,
     MapPageComponent,
+    CreateWorkoutComponent,
+    BesttimeComponent,
     GoalsComponent,
-    GoalFormComponent,
+    GoalFormComponent
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -98,16 +105,16 @@ const analytics = getAnalytics(app);
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
-    provideStorage(() => getStorage()),
+    AngularFireStorageModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA',
     })
   ],
-  providers: [SignupComponent, EquipmentService],
+  providers: [SignupComponent, EquipmentService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   // constructor(){
-  //   FirebaseTSApp.init(environment.firebaseConfig);
+  //   firebase.initializeApp(firebaseConfig);
   // }
  }
