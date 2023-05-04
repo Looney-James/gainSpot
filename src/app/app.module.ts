@@ -25,6 +25,7 @@ import { EquipmentService } from './equipment/equipment.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
@@ -74,7 +75,7 @@ const analytics = getAnalytics(app);
     EquipmentListComponent,
     FilterPipe,
     DashboardComponent,
-    MapPageComponent
+    MapPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -92,6 +93,7 @@ const analytics = getAnalytics(app);
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
+    AngularFireStorageModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA',
     })

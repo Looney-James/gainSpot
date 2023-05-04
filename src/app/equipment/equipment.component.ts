@@ -42,6 +42,7 @@ export class EquipmentComponent {
         this.selectedFile = file;
       }
     }
+    this.selectedFile = file;
   }  
 
   submitReport() {
@@ -53,7 +54,7 @@ export class EquipmentComponent {
         const comments = this.reportForm.get('comments')?.value;
         const date = new Date().toISOString();
         const report: Report = { equipment, status, comments, date };
-    
+  
         if (this.selectedFile) {
           const filePath = `${gym}/reports/${this.selectedFile.name}`;
           const fileRef = this.storage.ref(filePath);
@@ -61,8 +62,14 @@ export class EquipmentComponent {
           uploadTask.snapshotChanges().pipe(
             finalize(() => {
               fileRef.getDownloadURL().subscribe(url => {
-                report.fileUrl = url;
-                this.submitReportData(gym, report);
+                if (url) {
+                  report.fileUrl = url;
+                  this.submitReportData(gym, report);
+                } else {
+                  console.error('Error getting file URL.');
+                }
+              }, error => {
+                console.error(error);
               });
             })
           ).subscribe();
@@ -72,9 +79,11 @@ export class EquipmentComponent {
       } else {
         console.log('Gym is required.');
       }
+    } else {
+      console.error('Report form is not valid.');
     }
   }
-
+  
   submitReportData(gym: string, report: Report) {
     this.db.list(`${gym}/reports`).push(report)
       .then(() => {

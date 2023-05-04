@@ -118,7 +118,7 @@ export class EquipmentListComponent {
       if (fileWindow) {
         setTimeout(() => {
           fileWindow.close();
-        }, 10000);
+        }, 5000);
       }
     }
   }  

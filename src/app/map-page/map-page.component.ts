@@ -8,7 +8,7 @@ import { AgmCoreModule } from '@agm/core';
 })
 
 export class MapPageComponent implements OnInit {
-
+  
   lat = 39.5296;
   lng = -119.8138;
   zoom = 12;
@@ -24,8 +24,6 @@ export class MapPageComponent implements OnInit {
     window.addEventListener('load', () => this.initMap());
     this.initMap();
   }
-
-
   initMap() {
     const mapElement = document.getElementById('map');
     if (!mapElement) return;
@@ -36,8 +34,6 @@ export class MapPageComponent implements OnInit {
     };
   
     const map = new google.maps.Map(mapElement, options);
-
-  
   
     // Add markers for gyms
     const gyms = [
@@ -90,7 +86,8 @@ export class MapPageComponent implements OnInit {
         title: gym.name
       });
   
-      const contentString = `
+      const contentString = 
+      `
         <div class="info-window">
           <div class="info-window-header">${gym.name}</div>
           <div class="info-window-content">
@@ -119,6 +116,9 @@ export class MapPageComponent implements OnInit {
   
       marker.addListener('click', () => {
         infoWindow.open(map, marker);
+        setTimeout(() => {
+          infoWindow.close();
+        }, 10000)
       });
     });
 
