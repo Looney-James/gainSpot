@@ -7,7 +7,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 export interface Workout{
@@ -16,6 +16,8 @@ export interface Workout{
   reps: string;
   weight: string;
   userId: string;
+  completed: boolean;
+  id?: string;
 
 }
 
@@ -26,15 +28,17 @@ export interface Workout{
 })
 export class CreateWorkoutComponent implements OnInit {
   workoutsCollection!: AngularFirestoreCollection<Workout>;
+  completedWorkoutsCollection!: AngularFirestoreCollection<Workout>;
   workouts!: Observable<Workout[]>;
   uid!: string;
 
-  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private auth: AngularFireAuth) { 
+  constructor(public dialog: MatDialog, private firestore: AngularFirestore, private auth: AngularFireAuth, private snackBar: MatSnackBar) { 
     this.auth.user.subscribe(user => {
 
       if(user){
       this.uid = user.uid ?? '';
       this.workoutsCollection = this.firestore.collection<Workout>('workouts', ref => ref.where('userId', '==', this.uid));
+      this.completedWorkoutsCollection = this.firestore.collection<Workout>('completedWorkouts');
       this.workouts = this.workoutsCollection.valueChanges({idField: 'id'});
       }
     });
@@ -66,4 +70,17 @@ export class CreateWorkoutComponent implements OnInit {
       }
     });
   }
+
+  onComplete(workout: Workout) {
+    if (workout.completed) {
+      this.workoutsCollection.doc(workout.id).delete();
+      this.completedWorkoutsCollection.add(workout);
+      this.snackBar.open('Workout completed!', 'Close',{
+        duration: 5000,
+        verticalPosition: 'top',
+        panelClass: 'snackbar-success'
+      })
+    }
+  }
+  
 }

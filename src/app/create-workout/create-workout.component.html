@@ -15,7 +15,7 @@
   <body>
     <div class="container" style="margin-top: 50px">
       <div id="formBox">
-        <h1 id="font">Workout Creation</h1>
+        <h1 id="font">Workout Creator</h1>
         <div id="rectangle"></div>
   
         <br>
@@ -37,7 +37,8 @@
                 <th>Name</th>
                 <th>Sets</th>
                 <th>Reps</th>
-                <th>Weight</th>
+                <th>Weight (lbs)</th>
+                <th>Completed</th>
               </tr>
             </thead>
         
@@ -47,6 +48,7 @@
                 <td>{{ workout.sets }}</td>
                 <td>{{ workout.reps }}</td>
                 <td>{{ workout.weight }}</td>
+                <td><input type="checkbox" [(ngModel)]="workout.completed" (change)="onComplete(workout)"></td>
               </tr>
             </tbody>
           </table>
