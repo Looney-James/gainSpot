@@ -1,3 +1,9 @@
 .full-width {
     width: 60%;
   }
+
+  #rectangle {
+    width: 40px;
+    height: 3px;
+    background: rgb(126, 220, 246);
+}

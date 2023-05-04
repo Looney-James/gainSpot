@@ -14,6 +14,7 @@ export interface Workout{
   name: string;
   sets: string;
   reps: string;
+  weight: string;
   userId: string;
 }
 
@@ -41,6 +42,8 @@ export class CreateWorkoutComponent implements OnInit {
   }
 
   openDialog(): void {
+
+    console.log('openDialog called');
     const dialogRef = this.dialog.open(WorkoutFormComponent, {
       width: '300px',
       data: { name: '', sets: '', reps: ''}

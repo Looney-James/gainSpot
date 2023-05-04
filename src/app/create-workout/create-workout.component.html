@@ -32,25 +32,23 @@
         
         <div class="table-wrapper" style="overflow-y: scroll;">
           <table class="table table-bordered table-striped">
-            <!-- <thead>
+            <thead>
               <tr>
                 <th>Name</th>
                 <th>Sets</th>
                 <th>Reps</th>
+                <th>Weight</th>
               </tr>
-            </thead> -->
+            </thead>
         
             <tbody>
-              <div *ngIf="workouts | async as workouts">
-                <ul>
-                  <li *ngFor = "let workout of workouts">
-                  <td>{{ workout.name  }}</td>
-                  <td>Sets: {{ workout.sets }}</td>
-                  <td>Reps: {{ workout.reps }}</td>
-                  </li>
-                </ul>      
-              </div>
-            </tbody>          
+              <tr *ngFor="let workout of workouts | async">
+                <td>{{ workout.name }}</td>
+                <td>{{ workout.sets }}</td>
+                <td>{{ workout.reps }}</td>
+                <td>{{ workout.weight }}</td>
+              </tr>
+            </tbody>
           </table>
         </div>      
       </div>

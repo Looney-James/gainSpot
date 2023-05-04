@@ -42,6 +42,7 @@ import { MapPageComponent } from './map-page/map-page.component';
 import { CreateWorkoutComponent } from './create-workout/create-workout.component';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { BesttimeComponent } from './besttime/besttime.component';
 
 
 export const firebaseConfig = {
@@ -78,6 +79,7 @@ const analytics = getAnalytics(app);
     DashboardComponent,
     MapPageComponent,
     CreateWorkoutComponent,
+    BesttimeComponent,
   ],
   
   imports: [
