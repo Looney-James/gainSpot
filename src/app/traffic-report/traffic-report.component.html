@@ -1,0 +1,45 @@
+<div>
+    <h1 mat-dialog-title style> Add Busy Hours </h1>
+    <div id="rectangle"></div>
+    <br>
+    <div mat-dialog-content>
+        <mat-form-field appearance="fill" class = "full-width">
+            <select [(ngModel)] = "data.gym" required>
+                <option value="" disabled selected>Select gym</option>
+                <option value="E.L. Wiegand Fitness Center" class="font ">E.L. Wiegand Fitness Center</option>
+                <option value="Anytime Fitness" class="font">Anytime Fitness</option>
+                <option value="South Reno Athletic Club" class="font">South Reno Athletic Club</option>
+                <option value="Double Edge Fitness - Midtown" class="font">Double Edge Fitness - Midtown</option>
+                <option value="American Iron Gym" class="font">American Iron Gym</option>
+              </select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class = "full-width">
+            <select [(ngModel)] = "data.weekday" required>
+                <option value="" disabled selected>Day of the Week</option>
+                <option value="Monday" class="font ">Monday</option>
+                <option value="Tuesday" class="font">Tuesday</option>
+                <option value="Wednesday" class="font">Wednesday</option>
+                <option value="Thursday" class="font ">Thursday</option>
+                <option value="Friday" class="font ">Friday</option>
+                <option value="Saturday" class="font ">Saturday</option>
+                <option value="Sunday" class="font ">Sunday</option>
+              </select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class = "full-width">
+            <input matInput placeholder= "Name of goal" type="time" [(ngModel)] = "data.time" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class = "full-width">
+            <select [(ngModel)] = "data.busyness" required>
+                <option value="" disabled selected>How busy is it?</option>
+                <option value="busy" class="font ">Busy</option>
+                <option value="average" class="font">Average</option>
+                <option value="not busy" class="font">Not Busy</option>
+              </select>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial (click)="onAddClick()" [disabled]="!isFormValid()">Add</button>
+        <button mat-raised-button (click)="onNoClick()">Cancel</button>
+    </div>
+
+</div>

@@ -48,6 +48,7 @@ import { CreateWorkoutComponent } from './create-workout/create-workout.componen
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { BesttimeComponent } from './besttime/besttime.component';
+import { TrafficReportComponent } from './traffic-report/traffic-report.component';
 
 
 export const firebaseConfig = {
@@ -86,7 +87,8 @@ const analytics = getAnalytics(app);
     CreateWorkoutComponent,
     BesttimeComponent,
     GoalsComponent,
-    GoalFormComponent
+    GoalFormComponent,
+    TrafficReportComponent
   ],
   
   imports: [

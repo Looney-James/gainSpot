@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'createworkout', component: CreateWorkoutComponent, canActivate: [AuthGuard]},
   {path: 'signup', component: SignupComponent},
   {path: 'secret', component: SecretComponent, canActivate: [AuthGuard]},
-  {path: 'gymtraffic', component: GymTrafficComponent, canActivate: [AuthGuard]},
+  {path: 'gym-traffic', component: GymTrafficComponent, canActivate: [AuthGuard]},
   {path: 'equipment', component: EquipmentComponent, canActivate: [AuthGuard]},
   {path: 'equipment-list', component: EquipmentListComponent, canActivate: [AuthGuard]},
   {path: 'password-reset', component: ResetPasswordComponent},
