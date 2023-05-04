@@ -2,6 +2,7 @@ import { Component, Inject, EventEmitter, Output } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 
 export interface Workout{
@@ -9,6 +10,7 @@ export interface Workout{
   sets: string;
   reps: string;
   weight: string;
+  // time: string;
 }
 
 @Component({
@@ -24,13 +26,14 @@ export class WorkoutFormComponent {
   @Output() addWorkout = new EventEmitter<Workout>();
 
   constructor(public dialogRef: MatDialogRef<WorkoutFormComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private firestore: AngularFirestore){
+    @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private firestore: AngularFirestore, private auth: AngularFireAuth){
 
       this.workoutReport = this.formBuilder.group({
         name: ['', Validators.required],
         sets: ['', Validators.required],
         reps: ['', Validators.required],
         weight: ['', Validators.required]
+
       });
      }
 
@@ -50,7 +53,9 @@ export class WorkoutFormComponent {
       }
     
       const workout: Workout = this.workoutReport.value;
-    
+      // workout.time = new Date().toISOString();
+  
+
       this.firestore.collection('workouts').add(workout).then(() => {
         console.log('Workout added successfully');
       }).catch((error) => {
