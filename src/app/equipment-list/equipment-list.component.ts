@@ -58,12 +58,12 @@ export class EquipmentListComponent {
     const reportsRef = this.db.list<Report>(`${this.selectedGym.replace(/\./g, '-')}/reports`, queryFn);
 
     this.reports$ = reportsRef.snapshotChanges().pipe(
-      map(changes => {
-        return changes.map(c => ({
+      map((changes: any[]) =>
+        changes.map((c: any) => ({
           key: c.payload.key,
-          ...c.payload.val()
-        })).reverse();
-      })
+          ...(c.payload.val() as Report)
+        })).reverse()
+      )
     );
   }
   

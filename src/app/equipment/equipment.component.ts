@@ -95,7 +95,7 @@ export class EquipmentComponent {
               );
             } else {
               this.submitReportData(gym, report);
-              return of(null); // Return an Observable of null to avoid errors.
+              return of(null);
             }
           })
         ).subscribe();
@@ -107,7 +107,6 @@ export class EquipmentComponent {
       console.error('Report form is not valid.');
     }
   }
-  
   
   submitReportData(gym: string, report: Report) {
     this.user$.subscribe((user) => {

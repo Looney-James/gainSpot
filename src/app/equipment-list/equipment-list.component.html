@@ -51,9 +51,8 @@
           <div class="form-group">
             <label for="date-select">Filter by date:</label>
             <select id="date-select" [(ngModel)]="selectedDate" (ngModelChange)="onChangeDate()" class="form-control">
-              <option value="">All Dates</option>
-              <option value="asc">Oldest First</option>
-              <option value="desc">Newest First</option>
+              <option value="">Newest</option>
+              <option value="asc">Oldest</option>
             </select>
           </div>
         </div>
