@@ -42,6 +42,8 @@ import { FilterPipe } from './equipment-list/filter.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapPageComponent } from './map-page/map-page.component';
 import { BestTimeComponent } from './best-time/best-time.component';
+import { GoalsComponent } from './goals/goals.component';
+import { GoalFormComponent } from './goal-form/goal-form.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -77,6 +79,8 @@ const analytics = getAnalytics(app);
     FilterPipe,
     DashboardComponent,
     MapPageComponent,
+    GoalsComponent,
+    GoalFormComponent,
   ],
   imports: [
     BrowserModule,
