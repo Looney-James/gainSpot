@@ -30,9 +30,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ProfileComponent } from './profile/profile.component';
-
-
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AuthGuard } from './auth.guard';
 
 
 // import { FirebaseTSApp } from 'firebasets/firebasetsApp/firebaseTSApp';
@@ -41,6 +40,11 @@ import { EquipmentListComponent } from './equipment-list/equipment-list.componen
 import { FilterPipe } from './equipment-list/filter.pipe';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MapPageComponent } from './map-page/map-page.component';
+import { CreateWorkoutComponent } from './create-workout/create-workout.component';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import { BesttimeComponent } from './besttime/besttime.component';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCP8fm5Ov1LFzMO1Pw8kNyeOctL9nU1onI",
@@ -71,12 +75,14 @@ const analytics = getAnalytics(app);
     EquipmentComponent,
     WorkoutFormComponent,
     ResetPasswordComponent,
-    ProfileComponent,
     EquipmentListComponent,
     FilterPipe,
     DashboardComponent,
     MapPageComponent,
+    CreateWorkoutComponent,
+    BesttimeComponent,
   ],
+  
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -98,11 +104,11 @@ const analytics = getAnalytics(app);
       apiKey: 'AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA',
     })
   ],
-  providers: [SignupComponent, EquipmentService],
+  providers: [SignupComponent, EquipmentService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   // constructor(){
-  //   FirebaseTSApp.init(environment.firebaseConfig);
+  //   firebase.initializeApp(firebaseConfig);
   // }
  }

@@ -1,0 +1,59 @@
+<!-- Created by James -->
+<!--Workout page where there will be work outs listed and generated based on what the user wants-->'
+
+<div>
+    <mat-toolbar style = "background-color: turquoise; color: white">
+      
+      <div>
+        <button mat-raised-button>
+          <a style = "color: turquoise" href = "/dashboard"> Return </a>
+        </button>
+      </div>
+    </mat-toolbar>
+  </div>
+ 
+  <body>
+    <div class="container" style="margin-top: 50px">
+      <div id="formBox">
+        <h1 id="font">Workout Creation</h1>
+        <div id="rectangle"></div>
+  
+        <br>
+  
+        <div class="form-group">
+          <div class="row">
+            <div class="col-md-6">
+              <button mat-raised-button (click) = "openDialog()" style="margin-left: 20px; margin-top: 20px;">
+                Add Workout
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="table-wrapper" style="overflow-y: scroll;">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Sets</th>
+                <th>Reps</th>
+                <th>Weight</th>
+              </tr>
+            </thead>
+        
+            <tbody>
+              <tr *ngFor="let workout of workouts | async">
+                <td>{{ workout.name }}</td>
+                <td>{{ workout.sets }}</td>
+                <td>{{ workout.reps }}</td>
+                <td>{{ workout.weight }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>      
+      </div>
+    </div>
+  </body>
+
+  
+  

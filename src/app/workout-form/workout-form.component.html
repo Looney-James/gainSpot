@@ -1,19 +1,26 @@
 <!-- Created by James -->
 <div>
-    <h2 mat-dialog-title style> Add Workout </h2>
+    <h1 mat-dialog-title style> Add Workout </h1>
+    <div id="rectangle"></div>
+    <br>
     <div mat-dialog-content>
         <mat-form-field appearance="fill" class = "full-width">
-            <input matInput placeholder= "Name of workout" [(ngModel)] = "data.name">
+            <input matInput placeholder= "Name of workout" [(ngModel)] = "data.name" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class = "full-width">
-            <input matInput placeholder="Amount of Sets" type = "number" [(ngModel)]="data.sets" min = "0">
+            <input matInput placeholder="Amount of Sets" type = "number" [(ngModel)]="data.sets" required >
         </mat-form-field>
         <mat-form-field appearance="fill" class = "full-width">
-            <input matInput placeholder="Amount of Reps"  type = "number" [(ngModel)]="data.reps" min = "0">
+            <input matInput placeholder="Amount of Reps"  type = "number" [(ngModel)]="data.reps" required>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class = "full-width">
+            <input matInput placeholder="Amount of Weight"  type = "number" [(ngModel)]="data.weight" required>
         </mat-form-field>
     </div>
     <div mat-dialog-actions>
-        <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+        <button mat-raised-button [mat-dialog-close]="data" cdkFocusInitial (click)="onAddClick()" [disabled]="!isFormValid()">Add</button>
+
+
         <button mat-raised-button (click)="onNoClick()">Cancel</button>
     </div>
 

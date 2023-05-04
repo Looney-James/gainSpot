@@ -1,59 +1,42 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { User } from '../models/user';
-import { lastValueFrom } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthenticationClient } from '../clients/authentication.client';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { User } from '../models/user';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import type { IdTokenResult } from 'firebase/auth';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
+  constructor(private auth: AngularFireAuth, private router: Router) {}
 
-  private BASE_URL: string = 'http://localhost:4200/auth';
-  private headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-  constructor(private http: HttpClient) {}
+  async login(user: User): Promise<boolean> {
 
-  login(user: User): Promise<any> {
-    let url: string = `${this.BASE_URL}/login`;
-    return this.http.post(url, user, {headers: this.headers}).toPromise();
+    try {
+      const userCred = await this.auth.signInWithEmailAndPassword(user.email, user.password);
+      const currentUser = userCred.user;
+      if (currentUser) {
+        
+        const tokenResult = await currentUser.getIdTokenResult();
+        const token = tokenResult?.token;
+        localStorage.setItem('token', JSON.stringify(token));
+        return true;
+      } else {
+        throw new Error('Current user is null or undefined');
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   }
-  register(user: User): Promise<any> {
-    let url: string = `${this.BASE_URL}/register`;
-    return this.http.post(url, user, {headers: this.headers}).toPromise();
+
+  isLoggedIn(): boolean {
+    return !!this.auth.currentUser;
+  }
+
+  getToken(): string {
+    return localStorage.getItem('token') || '';
   }
 }
-
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgModule } from '@angular/core';
-// import { RouterModule } from '@angular/router';
-// import { FormsModule } from '@angular/forms';
-// import { HttpClientModule } from '@angular/common/http';
-
-// import { AppComponent } from './app.component';
-// import { LandingComponent } from './components/landing/landing.component';
-// import { SignUpComponent } from './components/sign-up/sign-up.component';
-// import { LogInComponent } from './components/log-in/log-in.component';
-// import { AuthService } from './services/auth.service';
-
-
-// @NgModule({
-//   declarations: [
-//     AppComponent,
-//     LandingComponent,
-//     SignUpComponent,
-//     LogInComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     FormsModule,
-//     HttpClientModule,
-//     RouterModule.forRoot([
-//       { path: 'log-in', component: LogInComponent },
-//       { path: 'sign-up', component: SignUpComponent },
-//       { path: '', component: LandingComponent },
-//       { path: '**', redirectTo: '/' }
-//     ])
-//   ],
-//   providers: [AuthService],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }

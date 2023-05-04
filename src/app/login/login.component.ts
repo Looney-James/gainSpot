@@ -25,86 +25,43 @@ import { coerceStringArray } from '@angular/cdk/coercion';
 
 export class LoginComponent implements OnInit {
 
-  // firestore: FirebaseTSFirestore;
-  // auth: FirebaseTSAuth;
-
   constructor(
-    private dialogRef : MatDialog, 
-    private httpClient: HttpClient, 
+    private dialogRef: MatDialog,
+    private authService: AuthService,
+    private httpClient: HttpClient,
     private router: Router,
-    private snackBar: MatSnackBar) {
-
-    // this.firestore = new FirebaseTSFirestore;
-    // this.auth = new FirebaseTSAuth;
-    }
+    private snackBar: MatSnackBar
+  ) { }
 
   ngOnInit(): void {
   }
 
-  // Check that it is working
-  // loginUser(event: Event) {
-  //   event.preventDefault()
-  //   console.log(event)
-  // }
-
   onLogin(loginForm: NgForm) {
 
-    console.log(loginForm.value);
+    const user = new User();
+    user.email = loginForm.value.email;
+    user.password = loginForm.value.password;
 
-    // Database url
-    // const url = 'https://gainspot-3cbad-default-rtdb.firebaseio.com/users.json';
-
-    this.httpClient.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.firebase.apiKey}`, 
-      { ...loginForm.value, returnSecureToken: true}
-    )
-    .subscribe(
-      () => {
-
-          this.snackBar.open("Successully Logged In!", "Done",{
-            duration: 6000,
-            verticalPosition: "top",
-            horizontalPosition: "center",
-            panelClass: ['purple-snackbar']
-          })
-
-          localStorage.setItem("user", loginForm.value["email"])
-          console.log(localStorage.getItem("user"))
-          this.router.navigate(['dashboard']);
-
-          // firebase.database()
-        }, 
-        (error) => {
-          let authFailMessage = "Login did not work.    " + error.error.error.message;
-
-          this.snackBar.open(authFailMessage, "Done",{
-            duration: 6000,
-            verticalPosition: "top",
-            horizontalPosition: "center",
-            panelClass: ['purple-snackbar']
-          })
-        }
-      );
-
-    // Retrieves data by checking for username in the database
-    // this.httpClient.get(url, {params: new HttpParams()
-    //   .set('orderBy', '"userName"')
-    //   .set('equalTo', `"${loginForm.value.userName}"`),
-    // })
-    // Will allow the user to go to the homepage if the login information matches what is in the database.
-    // Still needs to check for password and have better authentication.
-    // .subscribe((user) => {
-    //   if(Object.keys(user)?.length > 0) {
-    //     this.router.navigate(['']);
-    //     console.log(user);
-    //   }
-    // });
-
-    // const isUserExist = this.signupUsers.find(m => m.userName == this.loginObj.userName && m.password == this.loginObj.password);
-    // if(isUserExist != undefined) {
-    //   alert('Logged in');
-    // } else {
-    //   alert('Login did not work')
-    // }
+    this.authService.login(user).then(result => {
+      if (result) {
+        this.snackBar.open('Successfully Logged In!', 'Done', {
+          duration: 6000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          panelClass: ['purple-snackbar']
+        });
+        localStorage.setItem('user', JSON.stringify(user.email));
+        this.router.navigate(['dashboard']);
+        loginForm.resetForm();
+      } else {
+        const authFailMessage = 'Login did not work.';
+        this.snackBar.open(authFailMessage, 'Done', {
+          duration: 6000,
+          verticalPosition: 'top',
+          horizontalPosition: 'center',
+          panelClass: ['purple-snackbar']
+        });
+      }
+    });
   }
-
 }

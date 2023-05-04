@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MapPageComponent } from './map-page/map-page.component';
 import { WeeklyScheduleComponent } from './weekly-schedule/weekly-schedule.component';
-import { WorkoutListComponent } from './workout-list/workout-list.component';
+import { CreateWorkoutComponent } from './create-workout/create-workout.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
 import { SecretComponent } from './secret/secret.component';
@@ -17,26 +17,28 @@ import { GymTrafficComponent } from './gym-traffic/gym-traffic.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { EquipmentComponent } from './equipment/equipment.component';
-import { ProfileComponent } from './profile/profile.component';
+import { BesttimeComponent } from './besttime/besttime.component';
+
 import { EquipmentListComponent } from './equipment-list/equipment-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'map', component: MapPageComponent},
-  {path: 'weekly-schedule', component: WeeklyScheduleComponent},
-  {path: 'workouts', component: WorkoutListComponent},
+  {path: 'map', component: MapPageComponent, canActivate: [AuthGuard]},
+  {path: 'weekly-schedule', component: WeeklyScheduleComponent, canActivate: [AuthGuard]},
+  {path: 'createworkout', component: CreateWorkoutComponent, canActivate: [AuthGuard]},
   {path: 'signup', component: SignupComponent},
-  {path: 'secret', component: SecretComponent},
-  {path: 'gymtraffic', component: GymTrafficComponent},
-  {path: 'equipment', component: EquipmentComponent},
-  {path: 'equipment-list', component: EquipmentListComponent},
-  {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule)},
+  {path: 'secret', component: SecretComponent, canActivate: [AuthGuard]},
+  {path: 'gymtraffic', component: GymTrafficComponent, canActivate: [AuthGuard]},
+  {path: 'equipment', component: EquipmentComponent, canActivate: [AuthGuard]},
+  {path: 'equipment-list', component: EquipmentListComponent, canActivate: [AuthGuard]},
+  {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule), canActivate: [AuthGuard]},
   {path: 'password-reset', component: ResetPasswordComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: 'dashboard', component: DashboardComponent},
+  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'besttime', component: BesttimeComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent},
   
 ];
@@ -49,4 +51,4 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, WorkoutListComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, ProfileComponent, EquipmentListComponent, DashboardComponent]
+export const routingComponents = [LoginComponent, AboutComponent, MapPageComponent, WeeklyScheduleComponent, CreateWorkoutComponent, SignupComponent, SecretComponent, GymTrafficComponent, EquipmentComponent, EquipmentListComponent, DashboardComponent, BesttimeComponent]
