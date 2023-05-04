@@ -68,6 +68,7 @@
               <th>Comments</th>
               <th>Date</th>
               <th>File</th>
+              <th>User</th>
             </tr>
           </thead>
       
@@ -82,6 +83,7 @@
                   <a *ngIf="report.fileUrl" href="{{ report.fileUrl }}" target="_blank" (click)="openFileWindow($event)">View File</a>
                   <span *ngIf="!report.fileUrl">No File</span>
                 </td>
+                <td>{{ report.user }}</td>
               </tr>
             </ng-container>
           </tbody>          

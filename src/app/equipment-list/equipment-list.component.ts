@@ -12,6 +12,7 @@ export interface Report {
   status: string;
   comments: string;
   date: Date;
+  user: string;
 }
 
 @Component({
@@ -57,12 +58,12 @@ export class EquipmentListComponent {
     const reportsRef = this.db.list<Report>(`${this.selectedGym.replace(/\./g, '-')}/reports`, queryFn);
 
     this.reports$ = reportsRef.snapshotChanges().pipe(
-      map((changes: any[]) =>
-        changes.map((c: any) => ({
+      map(changes => {
+        return changes.map(c => ({
           key: c.payload.key,
-          ...(c.payload.val() as Report)
-        })).reverse()
-      )
+          ...c.payload.val()
+        })).reverse();
+      })
     );
   }
   
