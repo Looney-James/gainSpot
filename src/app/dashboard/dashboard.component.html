@@ -3,18 +3,26 @@
     <aside class="sidebar">
       <nav class="nav">
         <ul>
-            <!-- <li>
-                <span class = "material-icons-sharp">person</span>
-                <a href="/profile">Profile</a>
-            </li> -->
+            <li>
             <h1>Welcome!</h1>
             <h4>{{ user$ | async}}</h4>
-
+            </li>   
+            <br>
+            <br>
+            <br>
+            
             <li>
     
                 <a href="/createworkout">
                     <span class = "material-icons-sharp">fitness_center</span>
-                    Workouts
+                    Workout Creator
+                </a>
+            </li>
+            <li>
+    
+                <a href="/gymtraffic">
+                    <span class = "material-icons-sharp">groups</span> <!--Chagne the icon-->
+                    Gym Traffic
                 </a>
             </li>
             <li>

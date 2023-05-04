@@ -35,7 +35,6 @@ const routes: Routes = [
   {path: 'gymtraffic', component: GymTrafficComponent, canActivate: [AuthGuard]},
   {path: 'equipment', component: EquipmentComponent, canActivate: [AuthGuard]},
   {path: 'equipment-list', component: EquipmentListComponent, canActivate: [AuthGuard]},
-  {path: 'gymtraffic/gym/:name', loadChildren: () => import('./gym-details/gym-details.module').then(m => m.GymDetailsModule), canActivate: [AuthGuard]},
   {path: 'password-reset', component: ResetPasswordComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'besttime', component: BesttimeComponent, canActivate: [AuthGuard]},

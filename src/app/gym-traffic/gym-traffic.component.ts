@@ -1,7 +1,12 @@
 // Made by Dustin Mader
 
 import { Component, OnInit } from '@angular/core';
-import { GymTrafficService } from './gym-traffic.service';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireStorage } from '@angular/fire/compat/storage';
+import { QueryFn } from '@angular/fire/compat/firestore';
+import { Observable, combineLatest, of } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-gym-traffic',
@@ -10,18 +15,12 @@ import { GymTrafficService } from './gym-traffic.service';
 })
 export class GymTrafficComponent implements OnInit {
 
-  public gymData: {
-    logo: string, 
-    name: string, 
-    link: string
-  }[] = [];
-
-  constructor(
-    private gymTrafficService: GymTrafficService
-  ) {}
+  
+  constructor( ) {}
 
   ngOnInit(): void {
-    this.gymData = this.gymTrafficService.gymData;
+   
   }
+
 
 }
