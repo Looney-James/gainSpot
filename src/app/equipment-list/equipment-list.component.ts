@@ -12,6 +12,7 @@ export interface Report {
   status: string;
   comments: string;
   date: Date;
+  user: string;
 }
 
 @Component({
