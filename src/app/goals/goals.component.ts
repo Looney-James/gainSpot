@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 export interface Goal {
   goalName: string;
+  priority: string;
   comments: string;
   deadline: string;
   userId: string;
@@ -45,7 +46,7 @@ export class GoalsComponent implements OnInit {
     console.log('openDialog called');
     const dialogRef = this.dialog.open(GoalFormComponent, {
       width: '300px',
-      data: {goalName: '', comments: '', deadline: ''}
+      data: {goalName: '', priority: '', comments: '', deadline: ''}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -56,6 +57,19 @@ export class GoalsComponent implements OnInit {
         });
       }
     });
+  }
+
+  getBadgeColor(priority: string) {
+    switch (priority) {
+      case 'low':
+        return 'badge-success';
+      case 'high':
+        return 'badge-danger';
+      case 'mid':
+        return 'badge-warning';
+      default:
+        return 'badge-secondary';
+    }
   }
 
 }

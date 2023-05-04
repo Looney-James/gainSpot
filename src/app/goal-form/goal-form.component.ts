@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 export interface Goal{
   goalName: string;
+  priority: string;
   comments: string;
   deadline: string;
 }
@@ -26,13 +27,14 @@ export class GoalFormComponent {
   constructor(public dialogRef: MatDialogRef<GoalFormComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private firestore: AngularFirestore) {
     this.goalReport = this.formBuilder.group({
       goalName: ['', Validators.required],
+      priority: ['', Validators.required],
       comments: ['', Validators.required],
       deadline: ['', Validators.required]
     });
   }
 
   isFormValid(): boolean {
-    return this.data.goalName && this.data.comments && this.data.deadline;
+    return this.data.goalName && this.data.priority && this.data.comments && this.data.deadline;
   }
 
   onNoClick(): void {

@@ -7,6 +7,14 @@
             <input matInput placeholder= "Name of goal" [(ngModel)] = "data.goalName" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class = "full-width">
+            <select matInput aria-placeholder="Priority" [(ngModel)] = "data.priority" required>
+                <option value="" disabled selected>Select Priority</option>
+                <option value="high" class="font ">High</option>
+                <option value="mid" class="font">Mid</option>
+                <option value="low" class="font">Low</option>
+              </select>
+        </mat-form-field>
+        <mat-form-field appearance="fill" class = "full-width">
             <input matInput placeholder="Comments/Description" [(ngModel)]="data.comments" required>
         </mat-form-field>
         <mat-form-field appearance="fill" class = "full-width">

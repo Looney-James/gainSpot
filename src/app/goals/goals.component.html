@@ -32,6 +32,7 @@
             <thead>
               <tr>
                 <th>Name</th>
+                <th>Priority</th>
                 <th>Description</th>
                 <th>Deadline</th>
               </tr>
@@ -40,6 +41,7 @@
             <tbody>
               <tr *ngFor="let goal of goals | async">
                 <td>{{ goal.goalName }}</td>
+                <td><span class="badge {{ getBadgeColor(goal.priority) }}">{{ goal.priority }}</span></td>
                 <td>{{ goal.comments }}</td>
                 <td>{{ goal.deadline }}</td>
               </tr>
