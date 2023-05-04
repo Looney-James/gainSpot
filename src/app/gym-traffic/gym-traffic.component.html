@@ -1,8 +1,0 @@
-<!-- Made by Dustin Mader -->
-<mat-nav-list>
-    <mat-list-item *ngFor = "let gym of gymData" [routerLink]="['gym', gym.name]">
-        <h3 matLine class = "font">{{ gym.logo }} {{ gym.name }}</h3>
-        <p matLine> {{gym.link}} </p>
-        <mat-divider></mat-divider>
-    </mat-list-item>
-</mat-nav-list>
