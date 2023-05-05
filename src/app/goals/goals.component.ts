@@ -81,7 +81,7 @@ export class GoalsComponent implements OnInit {
     if (goal.completed) {
       this.goalsCollection.doc(goal.id).delete();
       this.completedGoalsCollection.add(goal);
-      this.snackBar.open('Workout completed!', 'Close',{
+      this.snackBar.open('Goal completed!', 'Close',{
         duration: 5000,
         verticalPosition: 'top',
         panelClass: 'snackbar-success'
