@@ -40,7 +40,7 @@ export class GoalsComponent implements OnInit {
       if (user){
         this.uid = user.uid ?? '';
         this.completedGoalsCollection = this.firestore.collection<Goal>('completedGoals', ref => ref.where('userId', '==', this.uid));
-        this.completedGoalsCollection = this.firestore.collection<Goal>('completedGoals');
+        this.goalsCollection = this.firestore.collection<Goal>('goals');
         this.completedGoals = this.completedGoalsCollection.valueChanges({idField: 'id'});
       }
     });
@@ -95,5 +95,16 @@ export class GoalsComponent implements OnInit {
       })
     }
   }
-
+  
+  unComplete(goal: Goal) {
+    if (!goal.completed) {
+      this.completedGoalsCollection.doc(goal.id).delete();
+      this.goalsCollection.add(goal);
+      this.snackBar.open('Goal uncompleted', 'Close',{
+        duration: 5000,
+        verticalPosition: 'top',
+        panelClass: 'snackbar-success'
+      })
+    }
+  }
 }
