@@ -1,3 +1,5 @@
+// Created by Gerard Bensadoun Gutsens
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { TrafficReportComponent } from '../traffic-report/traffic-report.component';

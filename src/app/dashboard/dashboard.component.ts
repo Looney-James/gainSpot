@@ -1,3 +1,5 @@
+//Created by James Looney
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
