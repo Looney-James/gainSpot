@@ -25,6 +25,7 @@ export class GoalsComponent implements OnInit {
   goalsCollection!: AngularFirestoreCollection<Goal>;
   completedGoalsCollection!: AngularFirestoreCollection<Goal>;
   goals!: Observable<Goal[]>;
+  completedGoals!: Observable<Goal[]>;
   uid!: string;
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore, private auth: AngularFireAuth, private snackBar: MatSnackBar) {
@@ -35,6 +36,12 @@ export class GoalsComponent implements OnInit {
         this.goalsCollection = this.firestore.collection<Goal>('goals', ref => ref.where('userId', '==', this.uid));
         this.completedGoalsCollection = this.firestore.collection<Goal>('completedGoals');
         this.goals = this.goalsCollection.valueChanges({idField: 'id'});
+      }
+      if (user){
+        this.uid = user.uid ?? '';
+        this.completedGoalsCollection = this.firestore.collection<Goal>('completedGoals', ref => ref.where('userId', '==', this.uid));
+        this.completedGoalsCollection = this.firestore.collection<Goal>('completedGoals');
+        this.completedGoals = this.completedGoalsCollection.valueChanges({idField: 'id'});
       }
     });
   }
