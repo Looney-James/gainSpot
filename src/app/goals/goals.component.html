@@ -60,6 +60,7 @@
                     <th>Priority</th>
                     <th>Description</th>
                     <th>Deadline</th>
+                    <th>Completed</th>
                   </tr>
                 </thead>
      
@@ -69,7 +70,7 @@
                   <td><span class="badge {{ getBadgeColor(completedGoal.priority) }}">{{ completedGoal.priority }}</span></td>
                   <td>{{ completedGoal.comments }}</td>
                   <td>{{ completedGoal.deadline }}</td>
-                  <!-- <td><input type="checkbox" [(ngModel)]="completedGoal.completed" (change)="onComplete(goal)"></td> -->
+                  <td><input type="checkbox" [(ngModel)]="completedGoal.completed" (change)="unComplete(completedGoal)"></td>
                 </tr>
               </tbody>
             </mat-tab>

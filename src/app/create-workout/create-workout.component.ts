@@ -31,6 +31,7 @@ export class CreateWorkoutComponent implements OnInit {
   workoutsCollection!: AngularFirestoreCollection<Workout>;
   completedWorkoutsCollection!: AngularFirestoreCollection<Workout>;
   workouts!: Observable<Workout[]>;
+  completedWorkouts!: Observable<Workout[]>;
   uid!: string;
 
   constructor(public dialog: MatDialog, private firestore: AngularFirestore, private auth: AngularFireAuth, private snackBar: MatSnackBar) { 
@@ -42,6 +43,12 @@ export class CreateWorkoutComponent implements OnInit {
       this.completedWorkoutsCollection = this.firestore.collection<Workout>('completedWorkouts');
       this.workouts = this.workoutsCollection.valueChanges({idField: 'id'});
       }
+      if(user){
+        this.uid = user.uid ?? '';
+        this.completedWorkoutsCollection = this.firestore.collection<Workout>('completedWorkouts', ref => ref.where('userId', '==', this.uid));
+        this.workoutsCollection = this.firestore.collection<Workout>('workouts');
+        this.completedWorkouts = this.completedWorkoutsCollection.valueChanges({idField: 'id'});
+        }
     });
      
   }
@@ -77,6 +84,18 @@ export class CreateWorkoutComponent implements OnInit {
       this.workoutsCollection.doc(workout.id).delete();
       this.completedWorkoutsCollection.add(workout);
       this.snackBar.open('Workout completed!', 'Close',{
+        duration: 5000,
+        verticalPosition: 'top',
+        panelClass: 'snackbar-success'
+      })
+    }
+  }
+
+  unComplete(workout: Workout) {
+    if (!workout.completed) {
+      this.completedWorkoutsCollection.doc(workout.id).delete();
+      this.workoutsCollection.add(workout);
+      this.snackBar.open('Workout uncompleted!', 'Close',{
         duration: 5000,
         verticalPosition: 'top',
         panelClass: 'snackbar-success'

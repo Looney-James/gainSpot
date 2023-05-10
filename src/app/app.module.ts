@@ -34,6 +34,8 @@ import { WorkoutFormComponent } from './workout-form/workout-form.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthGuard } from './auth.guard';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -110,6 +112,8 @@ const analytics = getAnalytics(app);
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireStorageModule,
+    MatSortModule,
+    MatTableModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBmNJOPD_kUBFJsEhOzjKWW0-gghB4otNA',
     })
