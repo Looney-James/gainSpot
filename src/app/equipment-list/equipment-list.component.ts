@@ -1,3 +1,5 @@
+//Created by Matthew Tang
+
 import { Component, EventEmitter } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireStorage } from '@angular/fire/compat/storage';

@@ -1,3 +1,5 @@
+//Created by Matthew Tang
+
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireDatabase } from '@angular/fire/compat/database';

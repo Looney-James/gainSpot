@@ -1,3 +1,5 @@
+//Created by James Looney
+
 import { Component, OnInit } from '@angular/core';
 import { AboutComponent } from '../about/about.component';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';

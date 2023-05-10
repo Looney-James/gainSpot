@@ -1,3 +1,5 @@
+// Created by Gerard Bensadoun Gutsens
+
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { GoalFormComponent } from '../goal-form/goal-form.component';
